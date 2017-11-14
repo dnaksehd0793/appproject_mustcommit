@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- A CardView that contains a TextView -->
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="4dp"
+        card_view:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:padding="16dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/iv_photo"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:src="@drawable/ballicon" />
+
+            <TextView
+                android:id="@+id/info_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/iv_photo"
+                android:layout_toRightOf="@+id/iv_photo"
+                android:text="teamname"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/info_region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/iv_photo"
+                android:layout_toRightOf="@+id/iv_photo"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/teamleadername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="82dp"
+                android:layout_marginStart="82dp"
+                android:layout_toEndOf="@+id/info_name"
+                android:layout_toRightOf="@+id/info_name"
+                android:text="TextView" />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
