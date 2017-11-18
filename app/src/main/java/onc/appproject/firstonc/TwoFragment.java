@@ -2,6 +2,7 @@ package onc.appproject.firstonc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -80,14 +81,20 @@ public class TwoFragment extends Fragment {
             }
         });
 
-
-        Button button = (Button) rootView.findViewById(R.id.createTeam);
-        button.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton button = (FloatingActionButton)rootView.findViewById(R.id.createTeam);
+        button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 updetail();
             }
         });
+        /*Button button = (Button) rootView.findViewById(R.id.createTeam);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updetail();
+            }
+        });*/
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_two, container, false);
         return rootView;
