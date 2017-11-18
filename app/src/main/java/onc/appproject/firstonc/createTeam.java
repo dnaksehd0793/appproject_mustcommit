@@ -1,5 +1,6 @@
 package onc.appproject.firstonc;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -81,6 +82,7 @@ public class createTeam extends AppCompatActivity {
                     checker,teamleader);
             databaseReference.child("team").push().setValue(team);
             Toast.makeText(this, "팀 생성이 완료되었습니다.", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }));
     }

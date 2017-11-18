@@ -94,6 +94,7 @@ public class TwoFragment extends Fragment {
     }
     public void updetail()
     {
+        getActivity().finish();
         Intent intent = new Intent(getActivity(), createTeam.class);
         startActivity(intent);
     }

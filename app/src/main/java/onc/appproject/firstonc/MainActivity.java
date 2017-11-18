@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
     }
+
     private void setupTabIcons() {
 
         TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         //tabThree.setText("라커룸");
-        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.uniform, 0, 0);
+        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.uniform, 0, 0);
         tabLayout.getTabAt(3).setCustomView(tabFour);
     }
     private void setupViewPager(ViewPager viewPager) {
