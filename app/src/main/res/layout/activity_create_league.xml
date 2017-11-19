@@ -16,16 +16,17 @@
         android:layout_gravity="center_horizontal"
         android:text="대회 등록"
         android:textSize="15pt" />
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/textteamname"
+            android:id="@+id/textleaguename"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
+            android:layout_margin="2dp"
             android:hint="대회 이름" />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
@@ -33,35 +34,62 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/textteamregion"
+            android:id="@+id/textleagueschedule"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:hint="팀 지역" />
+            android:layout_margin="2dp"
+            android:hint="대회 일시" />
     </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <EditText
+            android:id="@+id/textleaguesponsor"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:hint="주최" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <CheckBox
-        android:id="@+id/officialcheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="5dp"
-        android:text="공인팀으로 생성시 체크하세요" />
+        <EditText
+            android:id="@+id/textleaguejoincost"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:hint="참가비" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/textleagueteamnumber"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:hint="대회 참가 팀 수" />
+    </android.support.design.widget.TextInputLayout>
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20dp"
-        android:text="팀 생성을 신청하는 계정으로 팀장 권한이 부여됩니다.\n팀 생성 버튼을 누르면 팀생성 신청이 완료됩니다." />
+        android:text="대회 생성을 신청하는 계정으로 대회 관리자 권한이 부여됩니다.\n대회 생성 버튼을 누르면 대회생성 신청이 완료됩니다." />
 
     <Button
-        android:id="@+id/teammakebutton"
+        android:id="@+id/leaguemakebutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="팀 생성" />
+        android:text="대회 생성" />
 
 
 </LinearLayout>

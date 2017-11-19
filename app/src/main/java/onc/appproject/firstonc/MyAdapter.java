@@ -18,6 +18,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 /**
@@ -27,7 +33,7 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
 
     private ArrayList<Team> mDataset; //MainActivity에 item class를 정의해 놓았음
-
+    static Team selectteam = null;
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -38,11 +44,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         //public TextView mteamleadername;
         public ImageView mPhoto;
         public TextView mOfficialInfo;
-
+        public String name;
+        String teamname;
         public ViewHolder(View v) {
             super(v);
             mName = (TextView) v.findViewById(R.id.info_name);
             mAge = (TextView) v.findViewById(R.id.info_region);
+            teamname = mName.getText().toString();
             //mteamleadername = (TextView) v.findViewById(R.id.teamleadername);
             v.setOnClickListener(this);
 
@@ -51,7 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         public void onClick(View v){
            // Intent intent = new Intent(v.getContext(),TeamJoinActivity.class);
            // v.getContext().startActivity(intent);
-            dialogshow(v);
+            dialogshow(v,getAdapterPosition(),teamname);
         }
     }
 
@@ -91,7 +99,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         return mDataset.size();
     }
 
-    static void dialogshow(View v){
+    static void dialogshow(View v,int position, String teamname){
         AlertDialog.Builder  builder = new AlertDialog.Builder(v.getContext());
         builder.setTitle("팀 가입 선택");
         builder.setMessage("해당 팀으로 팀 가입하시겠습니까?");
@@ -109,6 +117,5 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
                 });
         builder.show();
     }
-
 
 }

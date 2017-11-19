@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".SignInActivity" />
         <activity android:name=".createTeam" />
+        <activity android:name=".createLeague"></activity>
     </application>
 
 </manifest>
