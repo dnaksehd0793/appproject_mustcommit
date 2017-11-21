@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
 
-    private ArrayList<Team> mDataset; //MainActivity에 item class를 정의해 놓았음
+    private static ArrayList<Team> mDataset; //MainActivity에 item class를 정의해 놓았음
     static Team selectteam = null;
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -59,7 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         public void onClick(View v){
            // Intent intent = new Intent(v.getContext(),TeamJoinActivity.class);
            // v.getContext().startActivity(intent);
-            dialogshow(v,getAdapterPosition(),teamname);
+            dialogshow(v,getAdapterPosition(),teamname,mDataset);
         }
     }
 
@@ -99,14 +99,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         return mDataset.size();
     }
 
-    static void dialogshow(View v,int position, String teamname){
+    static void dialogshow(View v,int position, String teamname,ArrayList<Team> mDataset){
         AlertDialog.Builder  builder = new AlertDialog.Builder(v.getContext());
         builder.setTitle("팀 가입 선택");
         builder.setMessage("해당 팀으로 팀 가입하시겠습니까?");
         builder.setPositiveButton("예",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(v.getContext(),"예를 선택했습니다.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(v.getContext(),mDataset.get(position).getTeamName()+" 팀으로 가입을 선택했습니다.",Toast.LENGTH_LONG).show();
                     }
                 });
         builder.setNegativeButton("아니오",
