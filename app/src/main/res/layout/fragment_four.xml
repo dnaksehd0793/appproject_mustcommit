@@ -15,11 +15,11 @@
         android:id="@+id/textView2" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/teammanagebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:text="4번째버튼" />
+        android:text="팀관리버튼" />
 
 </RelativeLayout>

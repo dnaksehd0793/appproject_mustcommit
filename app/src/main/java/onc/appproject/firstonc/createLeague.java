@@ -3,12 +3,9 @@ package onc.appproject.firstonc;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.ArrayList;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,37 +15,33 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class createTeam extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class createLeague extends AppCompatActivity {
+    TextView textleaguename;
+    TextView textleagueschedule;
+    TextView textleaguesponsor;
+    TextView textleaguejoincost;
+    TextView textleagueteamnumber;
+    Button leaguemakebutton;
+    User leagueleader = null;
     FirebaseAuth mFirebaseAuth;
     FirebaseUser mFirebaseUser;
-    TextView textteamname;
-    TextView textteamregion;
-    TextView textteamleader;
-    CheckBox officialcheckBox;
-    Button teammakebutton;
-    User teamleader = null;
+    private static ArrayList<User> userArraylist = new ArrayList<>();
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
-    private static ArrayList<User> userArraylist = new ArrayList<>();
-    boolean checker;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_team);
-        TypefaceUtil.overrideFont(this, "SERIF", "fonts/Roboto-Regular.ttf");
+        setContentView(R.layout.activity_create_league);
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser =  mFirebaseAuth.getCurrentUser();
-        textteamname = (TextView) findViewById(R.id.textteamname);
-        textteamregion = (TextView) findViewById(R.id.textteamregion);
-        teammakebutton = (Button) findViewById(R.id.teammakebutton);
-        checker = false;
-
-        findViewById(R.id.officialcheckBox).setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                Checked(v); // 체크되었을 때 동작코드
-            }
-        });
+        textleaguename = (TextView)findViewById(R.id.textleaguename);
+        textleagueschedule = (TextView)findViewById(R.id.textleagueschedule);
+        textleaguesponsor = (TextView)findViewById(R.id.textleaguesponsor);
+        textleaguejoincost = (TextView)findViewById(R.id.textleaguejoincost);
+        textleagueteamnumber = (TextView)findViewById(R.id.textleagueteamnumber);
+        leaguemakebutton = (Button)findViewById(R.id.leaguemakebutton);
 
         DatabaseReference databaseRef = firebaseDatabase.getReference("users");
 
@@ -71,27 +64,22 @@ public class createTeam extends AppCompatActivity {
         {
             if(searchuser.getUseremail().equals(mFirebaseUser.getEmail()))
             {
-                teamleader = searchuser;
+                leagueleader = searchuser;
                 break;
             }
         }
 
 
-        teammakebutton.setOnClickListener((view -> {
-            Team team = new Team(textteamname.getText().toString(),textteamregion.getText().toString(),
-                    checker,teamleader);
-            databaseReference.child("team").push().setValue(team);
-            Toast.makeText(this, "팀 생성이 완료되었습니다.", Toast.LENGTH_LONG).show();
+
+        leaguemakebutton.setOnClickListener(view -> {
+            League league = new League( textleaguename.getText().toString(),textleagueschedule.getText().toString(),
+                    textleaguesponsor.getText().toString(),textleaguejoincost.getText().toString(),
+                    textleagueteamnumber.getText().toString(),leagueleader);
+            databaseReference.child("league").push().setValue(league);
+            Toast.makeText(this, "대회 생성이 완료되었습니다.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
-        }));
-    }
-    public boolean Checked(View v) {
-        CheckBox opt1 = (CheckBox)findViewById(R.id.officialcheckBox);
-        if(opt1.isChecked())
-            checker  = true;
-        else
-            checker = false;
-        return checker;
+        });
+
     }
 }
