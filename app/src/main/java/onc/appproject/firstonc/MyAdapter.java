@@ -94,13 +94,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
+
         holder.mName.setText(mDataset.get(position).getTeamName());
         holder.mAge.setText(String.valueOf(mDataset.get(position).getTeamregion())); //int를 가져온다는점 유의
-        //holder.mteamleadername.setText(String.valueOf(mDataset.get(position).getTeamleader()));
-        //holder.mOfficialInfo.setText();
-        //holder.mPhoto.setImageBitmap(mDataset.get(position).getPhoto()); //첨부된 이미지를 연결해줘야 하는데 이건 또 복잡하다. 이건 나중에...
+
     }
 
     @Override
@@ -116,36 +113,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         builder.setPositiveButton("예",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        //Toast.makeText(v.getContext(),mDataset.get(position).getTeamName()+" 팀으로 가입 신청이 완료됬습니다.",Toast.LENGTH_LONG).show();
-                        //Toast.makeText(v.getContext(),mFirebaseUser.getEmail(),Toast.LENGTH_LONG).show();
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference databaseRef = database.getReference("team");
-                        String key = null;
-                        databaseRef.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
-                                    //MyFiles filename = (MyFiles) fileSnapshot.getValue(MyFiles.class);
-                                    //하위키들의 value를 어떻게 가져오느냐???
-                                    Team readTeam= fileSnapshot.getValue(Team.class);
-                                    teamArraylist.add(readTeam);
-                                }
-                            }
+                        Toast.makeText(v.getContext(),mDataset.get(position).getTeamName()+" 팀으로 가입 신청이 완료됬습니다.",Toast.LENGTH_LONG).show();
 
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-                        for(Team searchteam : teamArraylist)
-                        {
-                            if(searchteam.getTeamName().equals(mDataset.get(position).getTeamName()))
-                            {
-                                jointeam = searchteam ;
-                                break;
-                            }
-                        }
-                        Toast.makeText(v.getContext(),jointeam.getTeamName(),Toast.LENGTH_LONG).show();//오류남.
                     }
                 });
         builder.setNegativeButton("아니오",

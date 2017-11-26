@@ -1,19 +1,25 @@
 package onc.appproject.firstonc;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static onc.appproject.firstonc.MyAdapter.dialogshow;
 
 
 public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
 {
     private static ArrayList<League> mDataset;
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    static ArrayList<League> leagueArraylist = new ArrayList<>();
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         // 사용될 항목들 선언
         public TextView mName;
         public TextView mAge;
@@ -21,7 +27,7 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         public TextView mEmail2;
         public TextView mEmail3;
         public ImageView mPhoto;
-
+        String leaguename;
         public ViewHolder(View v) {
             super(v);
 
@@ -30,6 +36,14 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
             mEmail = (TextView) v.findViewById(R.id.info_Lsponsor);
             mEmail2 = (TextView) v.findViewById(R.id.info_Lcost);
             mEmail3 = (TextView) v.findViewById(R.id.info_Lteamnumber);
+            leaguename = mName.getText().toString();
+            v.setOnClickListener(this);
+
+        }
+        @Override
+        public void onClick(View v){
+            leagueArraylist= new ArrayList<>();
+            dialogshow(v,getAdapterPosition(),leaguename);
         }
     }
 
@@ -63,6 +77,26 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
     @Override
     public int getItemCount() {
         return mDataset.size();
+    }
+
+    static void dialogshow(View v,int position, String teamname){
+        AlertDialog.Builder  builder = new AlertDialog.Builder(v.getContext());
+        builder.setTitle("리그 참가 신청");
+        builder.setMessage("해당 대회로 참가 신청하시겠습니까?");
+        builder.setPositiveButton("예",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(v.getContext(),mDataset.get(position).getName()+"대회로 참가 신청이 완료됬습니다.",Toast.LENGTH_LONG).show();
+
+                    }
+                });
+        builder.setNegativeButton("아니오",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(v.getContext(),"아니오를 선택했습니다.",Toast.LENGTH_LONG).show();
+                    }
+                });
+        builder.show();
     }
 
 }
