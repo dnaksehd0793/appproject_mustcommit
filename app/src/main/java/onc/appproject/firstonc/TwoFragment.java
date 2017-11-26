@@ -88,15 +88,7 @@ public class TwoFragment extends Fragment {
                 updetail();
             }
         });
-        /*Button button = (Button) rootView.findViewById(R.id.createTeam);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updetail();
-            }
-        });*/
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_two, container, false);
+
         return rootView;
     }
     public void updetail()

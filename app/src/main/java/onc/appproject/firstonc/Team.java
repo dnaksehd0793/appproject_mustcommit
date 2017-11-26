@@ -1,5 +1,7 @@
 package onc.appproject.firstonc;
 
+import java.util.ArrayList;
+
 /**
  * Created by jamleekim on 2017-11-10.
  */
@@ -10,7 +12,7 @@ public class Team {
     public String teamregion;
     public boolean official; //등록유무
     public User teamleader;
-
+    public User member;
     public Team(){
 
     }
