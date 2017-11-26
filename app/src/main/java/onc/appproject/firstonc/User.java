@@ -7,6 +7,7 @@ package onc.appproject.firstonc;
 public class User {
     public String useremail;
     public String username;
+    public boolean teampermission;
     public User(){
 
     }
@@ -16,6 +17,7 @@ public class User {
     public User(String useremail,String username){
         this.useremail = useremail;
         this.username = username;
+        this.teampermission = false;
     }
     public String getUseremail(){
         return useremail;
@@ -23,4 +25,5 @@ public class User {
     public String getUsername(){
         return username;
     }
+    public Boolean getTeampermission(){return teampermission;}
 }

@@ -28,22 +28,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-/**
- * Created by js on 2017-03-18.
- */
+import static onc.appproject.firstonc.DatabaseManager.findUserByKey;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
-    static Team jointeam = null;
+    private static FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private static DatabaseReference databaseReference = firebaseDatabase.getReference();
     private static ArrayList<Team> mDataset; //MainActivity에 item class를 정의해 놓았음
-    static FirebaseAuth mFirebaseAuth;
-    static FirebaseUser mFirebaseUser;
-    static FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    static DatabaseReference databaseReference = firebaseDatabase.getReference();
-    static ArrayList<Team> teamArraylist = new ArrayList<>();
-
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
+    static  FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         // 사용될 항목들 선언
         public TextView mName;
@@ -52,6 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         public ImageView mPhoto;
         public TextView mOfficialInfo;
         public String name;
+        User myuser = null;
         String teamname;
 
         public ViewHolder(View v) {
@@ -59,16 +51,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
             mName = (TextView) v.findViewById(R.id.info_name);
             mAge = (TextView) v.findViewById(R.id.info_region);
             teamname = mName.getText().toString();
+
             //mteamleadername = (TextView) v.findViewById(R.id.teamleadername);
             v.setOnClickListener(this);
 
         }
         @Override
         public void onClick(View v){
-            mFirebaseAuth = FirebaseAuth.getInstance();
-            mFirebaseUser =  mFirebaseAuth.getCurrentUser();
-            teamArraylist = new ArrayList<>();
-            dialogshow(v,getAdapterPosition(),teamname);
+           // String tempstring = DatabaseManager.findUserByKey(mFirebaseUser.getUid());
+            dialogshow(v,getAdapterPosition());
         }
     }
 
@@ -84,7 +75,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
-        // set the view's size, margins, paddings and layout parameters
 
         ViewHolder holder = new ViewHolder(v);
         return holder;
@@ -94,7 +84,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
         holder.mName.setText(mDataset.get(position).getTeamName());
         holder.mAge.setText(String.valueOf(mDataset.get(position).getTeamregion())); //int를 가져온다는점 유의
 
@@ -106,15 +95,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     }
 
     //static void dialogshow(View v,int position, String teamname,ArrayList<Team> mDataset){
-    static void dialogshow(View v,int position, String teamname){
+    static void dialogshow(View v,int position){
         AlertDialog.Builder  builder = new AlertDialog.Builder(v.getContext());
         builder.setTitle("팀 가입 선택");
         builder.setMessage("해당 팀으로 팀 가입하시겠습니까?");
         builder.setPositiveButton("예",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(v.getContext(),mDataset.get(position).getTeamName()+" 팀으로 가입 신청이 완료됬습니다.",Toast.LENGTH_LONG).show();
-
+                        Team myteam = DatabaseManager.getTeam(mDataset.get(position).getTeamName());
+                        databaseReference.child("team").child(myteam.getTeamName()).child("teammember").push().setValue(DatabaseManager.getUser(mFirebaseUser.getEmail()));
+                        //databaseReference.child("team").push().setValue(myteam);
+                       // Toast.makeText(v.getContext(),myuser.getUsername()+"가 팀에 가입하려는 유저입니다.",Toast.LENGTH_LONG).show();
                     }
                 });
         builder.setNegativeButton("아니오",
@@ -125,6 +116,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
                 });
         builder.show();
     }
-
-
 }

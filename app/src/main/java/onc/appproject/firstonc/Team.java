@@ -34,6 +34,6 @@ public class Team {
     public String getTeamregion(){
         return teamregion;
     }
-    //public String getTeamleader(){return teamleader;}
+    public User getTeamleader(){return teamleader;}
 
 }
