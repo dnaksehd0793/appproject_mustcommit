@@ -102,10 +102,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         builder.setPositiveButton("예",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Team myteam = DatabaseManager.getTeam(mDataset.get(position).getTeamName());
-                        databaseReference.child("team").child(myteam.getTeamName()).child("teammember").push().setValue(DatabaseManager.getUser(mFirebaseUser.getEmail()));
+
+                        //mDataset.get(position).getTeamName()
+                        //Team myteam = DatabaseManager.getTeam(mDataset.get(position).getTeamName());
+                        //databaseReference.child("team").child(myteam.getTeamName()).child("teammember").push().setValue(DatabaseManager.getUser(mFirebaseUser.getEmail()));
                         //databaseReference.child("team").push().setValue(myteam);
-                       // Toast.makeText(v.getContext(),myuser.getUsername()+"가 팀에 가입하려는 유저입니다.",Toast.LENGTH_LONG).show();
+                       Toast.makeText(v.getContext(), DatabaseManager.getTeam(mDataset.get(position).getTeamName())+"가 가입하려는 팀입니다.",Toast.LENGTH_LONG).show();
                     }
                 });
         builder.setNegativeButton("아니오",
