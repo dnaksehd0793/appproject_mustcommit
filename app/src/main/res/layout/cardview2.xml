@@ -4,54 +4,72 @@
     android:layout_height="wrap_content">
 
     <!-- A CardView that contains a TextView -->
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view2"
-        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="8dp"
         card_view:cardCornerRadius="4dp">
 
-        <ImageView
-            android:id="@+id/iv_photo"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:src="@drawable/ballicon" />
-
         <LinearLayout
-            android:padding="16dp"
-            android:orientation="vertical"
+            android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
 
             <TextView
                 android:id="@+id/info_Lname"
+                android:layout_width="278dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:text="팀명"
                 android:textColor="#106897"
-                android:textSize="18dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/info_Lschedule"
-                android:textSize="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="278dp"
+                android:layout_height="wrap_content"
+                android:text="기간"
+                android:textSize="13dp" />
+
             <TextView
                 android:id="@+id/info_Lsponsor"
-                android:textSize="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="278dp"
+                android:layout_height="wrap_content"
+                android:text="스폰서"
+                android:textSize="13dp" />
+
             <TextView
                 android:id="@+id/info_Lcost"
-                android:textSize="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="278dp"
+                android:layout_height="wrap_content"
+                android:text="회비"
+                android:textSize="13dp" />
+
             <TextView
                 android:id="@+id/info_Lteamnumber"
-                android:textSize="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="278dp"
+                android:layout_height="wrap_content"
+                android:text="팀참여"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:paddingRight="18dp">
+
+            <ImageView
+                android:id="@+id/iv_photo"
+                android:layout_width="77dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ballicon2" />
 
         </LinearLayout>
 
