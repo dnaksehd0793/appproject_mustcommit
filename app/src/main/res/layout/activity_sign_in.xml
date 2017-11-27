@@ -5,23 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context="onc.appproject.firstonc.SignInActivity">
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="150dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="135dp"
         android:text="회원가입"
-        android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        android:textSize="23dp" />
+        android:textColor="@color/colorAccent"
+        android:textSize="14pt" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc"
+        android:layout_gravity="center"/>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="77dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
+        android:layout_height="50dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="4dp"
+        android:textSize="7pt"
         android:text="회원가입을 해야 정상적으로 사용할 수 있습니다.\nEmail과 비밀번호를 등록해 주세요." />
 
     <android.support.design.widget.TextInputLayout
@@ -30,11 +39,11 @@
 
         <EditText
             android:id="@+id/editTextEmail"
-            android:layout_width="250dp"
+            android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:hint="이메일입력"
+            android:layout_marginLeft="52dp"
+            android:hint="이메일"
+            android:textSize="8pt"
             android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
 
@@ -44,11 +53,11 @@
 
         <EditText
             android:id="@+id/editTextName"
-            android:layout_width="250dp"
+            android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:hint="이름 입력"
+            android:layout_marginLeft="52dp"
+            android:hint="이름"
+            android:textSize="8pt"
             android:inputType="textPersonName" />
     </android.support.design.widget.TextInputLayout>
 
@@ -59,11 +68,11 @@
 
         <EditText
             android:id="@+id/editTextPassword"
-            android:layout_width="250dp"
+            android:layout_width="305dp"
             android:layout_height="47dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:hint="비밀번호 입력"
+            android:layout_marginLeft="52dp"
+            android:hint="비밀번호"
+            android:textSize="8pt"
             android:inputType="textPassword" />
     </android.support.design.widget.TextInputLayout>
 
@@ -72,14 +81,10 @@
         android:layout_width="297dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimary"
+        android:textSize="7.7pt"
         android:text="회원가입" />
-
-    <TextView
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/colorAccent"
-        android:id="@+id/textviewMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

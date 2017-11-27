@@ -4,29 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dcdcdc"
-    android:gravity="center_vertical"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     tools:context="onc.appproject.firstonc.createTeam">
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textSize="15pt"
-        android:text="팀 등록" />
+        android:layout_height="50dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="135dp"
+        android:textStyle="bold"
+        android:text="팀 등록"
+        android:textColor="@color/colorAccent"
+        android:textSize="14pt" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="20dp"
+        android:lineSpacingExtra="4dp"
+        android:text="신청하는 계정으로 팀장 권한이 부여됩니다.\n팀 생성 버튼을 누르면 신청이 완료됩니다." />
+
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/textteamname"
-            android:layout_width="250dp"
+            android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
-            android:textSize="15.5dp"
+            android:textSize="8pt"
             android:hint="팀 이름" />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
@@ -35,11 +54,11 @@
 
         <EditText
             android:id="@+id/textteamregion"
-            android:layout_width="250dp"
+            android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
-            android:textSize="15.5dp"
+            android:textSize="8pt"
             android:hint="팀 지역" />
     </android.support.design.widget.TextInputLayout>
 
@@ -49,25 +68,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="5dp"
+        android:layout_marginTop="42dp"
         android:text="공인팀으로 생성시 체크하세요" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="54dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:text="신청하는 계정으로 팀장 권한이 부여됩니다.\n팀 생성 버튼을 누르면 신청이 완료됩니다." />
 
     <Button
         android:id="@+id/teammakebutton"
         android:layout_width="297dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimary"
         android:text="팀 생성"
-        android:textSize="15.5dp" />
+        android:textSize="7.7pt"/>
 
 
 </LinearLayout>

@@ -9,6 +9,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">#5c6bc0</item>
+        <item name="colorControlNormal">#b6b6b6</item>
     </style>
 
 </resources>
