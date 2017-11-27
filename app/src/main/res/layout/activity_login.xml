@@ -65,13 +65,13 @@
         android:text="로그인" />
 
 
-    <TextView
+   <!-- <TextView
         android:layout_gravity="center_horizontal"
         android:textColor="@color/colorAccent"
         android:id="@+id/textviewMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
+-->
     <Button
         android:id="@+id/buttonSP"
         android:layout_width="match_parent"
@@ -94,6 +94,5 @@
             android:text="아직 계정이 없나요? 회원가입" />
 
     </LinearLayout>
-
 
 </LinearLayout>
