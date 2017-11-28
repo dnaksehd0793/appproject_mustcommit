@@ -27,7 +27,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="#dcdcdc"
+            android:textColor="@color/colorPrimaryDark"
             android:textColorHint="#dcdcdc"
             android:hint="e-mail"
             android:inputType="textEmailAddress" />
@@ -42,6 +42,8 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#dcdcdc"
             android:layout_margin="10dp"
             android:hint="password"
             android:ellipsize="end"

@@ -8,6 +8,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import static onc.appproject.firstonc.MyAdapter.mFirebaseUser;
+
 public class DatabaseManager {
 
     private static FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -16,6 +18,9 @@ public class DatabaseManager {
     private static ArrayList<Team> teamArraylist = new ArrayList<>();
     static ArrayList<String> uidlist = new ArrayList<>();
     static ArrayList<String> uidlist2 = new ArrayList<>();
+    public static String publlicteamkey = null;
+    public static String publicuserkey = null;
+    public static Team sosockteam = null;
     public static String findUserByKey(String key){
         String returnstring = null;
         DatabaseReference databaseRef = firebaseDatabase.getReference("users");
@@ -74,7 +79,8 @@ public class DatabaseManager {
         }
         return user;
     }
-    public static Team getTeam(String teamname)
+
+    public static String getTeam(String teamname)
     {
         Team team = new Team();
         DatabaseReference databaseRef = firebaseDatabase.getReference("team");
@@ -83,7 +89,56 @@ public class DatabaseManager {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
                     Team inputteam = (Team)fileSnapshot.getValue(Team.class);
+                    if(inputteam.getTeamName().equals(teamname))
+                    {
+                        publlicteamkey = fileSnapshot.getKey();
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return publlicteamkey;
+    }
+    public static void setteaminfoinuser(Team team)
+    {
+        User user = new User();
+        DatabaseReference databaseRef = firebaseDatabase.getReference("users");
+
+        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
+                    User inputuser = (User)fileSnapshot.getValue(User.class);
+                    if(inputuser.getUsername().equals(mFirebaseUser.getEmail())){
+                        publicuserkey = fileSnapshot.getKey();
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        databaseRef.child(publicuserkey).child("teaminfo").push().setValue(team);
+    }
+    public static Team findteambyuser(User user)
+    {
+       Team team = new Team();
+        DatabaseReference databaseRef = firebaseDatabase.getReference("team");
+
+        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
+                    Team inputteam = (Team)fileSnapshot.getValue(Team.class);
                     teamArraylist.add(inputteam);
+                    if(inputteam.getTeamleader().getUsername().equals(user.getUsername()))
+                    {
+                        sosockteam = inputteam;
+                    }
                 }
             }
 
@@ -93,15 +148,8 @@ public class DatabaseManager {
             }
         });
 
-        for(Team searchteam : teamArraylist)
-        {
-            if(searchteam.getTeamName().equals(teamname))
-            {
-                team = searchteam;
-                break;
-            }
-        }
-        return team;
+        return sosockteam;
     }
+
 
 }

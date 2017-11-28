@@ -7,6 +7,7 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +60,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         @Override
         public void onClick(View v){
            // String tempstring = DatabaseManager.findUserByKey(mFirebaseUser.getUid());
-            dialogshow(v,getAdapterPosition());
+            String teamkey = DatabaseManager.getTeam(mDataset.get(getAdapterPosition()).getTeamName());
+            User loginuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    String teamkey = DatabaseManager.getTeam(mDataset.get(getAdapterPosition()).getTeamName());
+                    User loginuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
+                    //Toast.makeText(v.getContext(), teamkey+ loginuser .getUsername()+"가 가입하려는 팀입니다.",Toast.LENGTH_LONG).show();
+                    dialogshow(v,getAdapterPosition(),teamkey,loginuser);
+                }
+            },200);
+
+            //dialogshow(v,getAdapterPosition(),teamkey,loginuser);
         }
     }
 
@@ -95,19 +108,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     }
 
     //static void dialogshow(View v,int position, String teamname,ArrayList<Team> mDataset){
-    static void dialogshow(View v,int position){
+    static void dialogshow(View v,int position,String teamkey,User loginuser){
         AlertDialog.Builder  builder = new AlertDialog.Builder(v.getContext());
         builder.setTitle("팀 가입 선택");
         builder.setMessage("해당 팀으로 팀 가입하시겠습니까?");
         builder.setPositiveButton("예",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        DatabaseReference databaseRef = firebaseDatabase.getReference("team");
 
+                       // String teamkey2 = DatabaseManager.getTeam(mDataset.get(position).getTeamName());
+                       // User loginuser2 = DatabaseManager.getUser(mFirebaseUser.getEmail());
+                        //Toast.makeText(v.getContext(), teamkey+ loginuser .getUsername()+"가 가입하려는 팀입니다.",Toast.LENGTH_LONG).show();
+                        databaseRef.child(teamkey).child("teammember").push().setValue(loginuser);
+
+                        Toast.makeText(v.getContext(),mDataset.get(position).getTeamName()+"팀으로 가입 신청이 완료되었습니다.",Toast.LENGTH_LONG).show();
                         //mDataset.get(position).getTeamName()
                         //Team myteam = DatabaseManager.getTeam(mDataset.get(position).getTeamName());
                         //databaseReference.child("team").child(myteam.getTeamName()).child("teammember").push().setValue(DatabaseManager.getUser(mFirebaseUser.getEmail()));
                         //databaseReference.child("team").push().setValue(myteam);
-                       Toast.makeText(v.getContext(), DatabaseManager.getTeam(mDataset.get(position).getTeamName())+"가 가입하려는 팀입니다.",Toast.LENGTH_LONG).show();
+                      // Toast.makeText(v.getContext(), DatabaseManager.getTeam(mDataset.get(position).getTeamName())+"가 가입하려는 팀입니다.",Toast.LENGTH_LONG).show();
                     }
                 });
         builder.setNegativeButton("아니오",

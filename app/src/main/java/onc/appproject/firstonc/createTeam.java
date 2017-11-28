@@ -57,7 +57,10 @@ public class createTeam extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
                     User inputuser = (User)fileSnapshot.getValue(User.class);
-                    userArraylist.add(inputuser);
+                    if(inputuser.useremail.equals(mFirebaseUser.getEmail())){
+                        teamleader = inputuser;
+                        break;
+                    }
                 }
             }
 
@@ -67,20 +70,13 @@ public class createTeam extends AppCompatActivity {
             }
         });
 
-        for(User searchuser : userArraylist)
-        {
-            if(searchuser.getUseremail().equals(mFirebaseUser.getEmail()))
-            {
-                teamleader = searchuser;
-                break;
-            }
-        }
-
 
         teammakebutton.setOnClickListener((view -> {
             Team team = new Team(textteamname.getText().toString(),textteamregion.getText().toString(),
                     checker,teamleader);
             databaseReference.child("team").push().setValue(team);
+            //FirebaseDatabase.getInstance().getReference().child("users").child(mFirebaseAuth.)
+            //DatabaseManager.setteaminfoinuser(team);
             Toast.makeText(this, "팀 생성이 완료되었습니다.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();

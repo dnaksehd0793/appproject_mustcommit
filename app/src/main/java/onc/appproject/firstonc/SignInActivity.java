@@ -41,7 +41,7 @@ public class SignInActivity extends AppCompatActivity {
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextName = (EditText) findViewById(R.id.editTextName);
-        textviewMessage = (TextView) findViewById(R.id.textviewMessage);
+        //textviewMessage = (TextView) findViewById(R.id.textviewMessage);
         buttonSignup = (Button) findViewById(R.id.buttonSignup);
         progressDialog = new ProgressDialog(this);
 
@@ -79,7 +79,7 @@ public class SignInActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
 
                             FirebaseUser user = task.getResult().getUser();
-                            User userModel = new User(user.getEmail(),editTextName.getText().toString());
+                            User userModel = new User(user.getEmail(),editTextName.getText().toString(),null);
                             databaseReference.child("users").child(user.getUid()).setValue(userModel);
                             finish();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));

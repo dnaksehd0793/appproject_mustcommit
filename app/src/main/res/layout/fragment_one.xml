@@ -5,22 +5,29 @@
 
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="one"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
-        android:id="@+id/textView" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:text="Button" />
+        android:text="네이버 농구 기사" />
+
+
+    <TextView
+        android:id="@+id/newsView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:textSize="25dp"
+        android:text= "'김정은 23점' 우리은행, KEB하나은행에 70:57 승리
+    농구 대표팀 김종규, 왼무릎 인대 파열…6주 이상 결장 불가피
+    ‘농구월드컵 1승 1패’ 허재호, 희망을 보다
+    앤써니, 정규시즌 누적 득점 23위 등극!
+    `타운스 32점` 미네소타, 부커 빠진 피닉스 제압" />
+
 
 </RelativeLayout>
 
