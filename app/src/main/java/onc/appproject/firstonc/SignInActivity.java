@@ -7,8 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +47,19 @@ public class SignInActivity extends AppCompatActivity {
         //textviewMessage = (TextView) findViewById(R.id.textviewMessage);
         buttonSignup = (Button) findViewById(R.id.buttonSignup);
         progressDialog = new ProgressDialog(this);
+
+
+      /*  final TextView tv = (TextView)findViewById(R.id.textLocation);
+        Spinner s = (Spinner)findViewById(R.id.spinner_location);
+
+        //spinner click event
+        s.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                tv.setText("지역 :" + position + parent.getItemAtPosition(position));
+            }
+        });
+*/
 
         //button click event
         buttonSignup.setOnClickListener(new Button.OnClickListener(){
