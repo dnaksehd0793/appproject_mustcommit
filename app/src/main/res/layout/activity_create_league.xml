@@ -16,7 +16,7 @@
         android:layout_marginTop="110dp"
         android:text="대회 등록"
         android:textStyle="bold"
-        android:textColor="@color/colorAccent"
+        android:textColor="#515151"
         android:textSize="14pt" />
 
     <View
@@ -32,6 +32,7 @@
         android:layout_marginLeft="55dp"
         android:layout_marginTop="20dp"
         android:lineSpacingExtra="4dp"
+        android:textColor="@color/colorAccent"
         android:text="신청하는 계정으로 대회 관리자 권한이 부여됩니다.\n대회 생성 버튼을 누르면 대회생성 신청이 완료됩니다." />
 
     <android.support.design.widget.TextInputLayout
@@ -48,19 +49,6 @@
             android:hint="대회 이름" />
 
     </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/textleagueschedule"
-            android:layout_width="305dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:textSize="8pt"
-            android:hint="대회 일시" />
-    </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -76,21 +64,92 @@
             android:hint="주최" />
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <!--<android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/textleaguejoincost"
+            android:id="@+id/textleagueschedule"
             android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
             android:textSize="8pt"
-            android:hint="참가비" />
-    </android.support.design.widget.TextInputLayout>
+            android:hint="대회 일시" />
+    </android.support.design.widget.TextInputLayout>-->
 
-    <android.support.design.widget.TextInputLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대회 일시"
+            android:layout_gravity="center"
+            android:textSize="7.7pt"
+            android:paddingRight="43dp"/>
+
+
+        <DatePicker
+            android:id="@+id/league_date"
+            style="@android:style/Widget.DatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_gravity="center"></DatePicker>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/textleaguejoincost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="8pt"
+            android:layout_marginRight="130dp"
+            android:hint="참가비" />
+
+        <Spinner
+            android:id="@+id/spinner_cost"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:entries="@array/cost" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8pt"
+            android:layout_marginRight="162dp"
+            android:text="참가 팀수" />
+
+        <Spinner
+            android:id="@+id/spinner_teamnumbering"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:entries="@array/teamno"></Spinner>
+
+    </LinearLayout>
+
+
+
+    <!--<android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -102,7 +161,7 @@
             android:layout_margin="5dp"
             android:textSize="8pt"
             android:hint="대회 참가 팀 수" />
-    </android.support.design.widget.TextInputLayout>
+    </android.support.design.widget.TextInputLayout>-->
 
     <Button
         android:id="@+id/leaguemakebutton"
@@ -113,7 +172,7 @@
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimary"
         android:text="대회 생성"
-        android:textSize="7.7pt"/>
+        android:textSize="8pt"/>
 
 
 </LinearLayout>

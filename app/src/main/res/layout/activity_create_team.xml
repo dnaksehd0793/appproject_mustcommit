@@ -16,7 +16,7 @@
         android:layout_marginTop="135dp"
         android:textStyle="bold"
         android:text="팀 등록"
-        android:textColor="@color/colorAccent"
+        android:textColor="#515151"
         android:textSize="14pt" />
 
     <View
@@ -32,6 +32,7 @@
         android:layout_marginLeft="55dp"
         android:layout_marginTop="20dp"
         android:lineSpacingExtra="4dp"
+        android:textColor="@color/colorAccent"
         android:text="신청하는 계정으로 팀장 권한이 부여됩니다.\n팀 생성 버튼을 누르면 신청이 완료됩니다." />
 
 
@@ -48,6 +49,8 @@
             android:textSize="8pt"
             android:hint="팀 이름" />
     </android.support.design.widget.TextInputLayout>
+
+    <!--
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -61,6 +64,40 @@
             android:textSize="8pt"
             android:hint="팀 지역" />
     </android.support.design.widget.TextInputLayout>
+-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="150dp"
+            android:text="우리동네"
+            android:textSize="8pt" />
+
+        <!--<TextView
+            android:id="@+id/textLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="hello"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>-->
+
+        <Spinner
+            android:id="@+id/spinner_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:entries="@array/city" />
+
+    </LinearLayout>
+
 
 
     <CheckBox
@@ -81,7 +118,7 @@
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimary"
         android:text="팀 생성"
-        android:textSize="7.7pt"/>
+        android:textSize="8pt"/>
 
 
 </LinearLayout>

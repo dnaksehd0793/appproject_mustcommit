@@ -13,5 +13,9 @@
         <item name="colorControlHighlight">#5c6bc0</item>
         <item name="colorControlNormal">#b6b6b6</item>
     </style>
+    
+    <!--<style name="spinner">-->
+        <!--<item name="android:background">@drawable/drawablespinner</item>-->
+    <!--</style>-->
 
 </resources>

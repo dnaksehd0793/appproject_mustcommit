@@ -12,10 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="115dp"
         android:text="회원가입"
         android:textStyle="bold"
-        android:textColor="@color/colorAccent"
+        android:textColor="#515151"
         android:textSize="14pt" />
 
     <View
@@ -31,7 +31,8 @@
         android:layout_marginTop="20dp"
         android:lineSpacingExtra="4dp"
         android:textSize="7pt"
-        android:text="회원가입을 해야 정상적으로 사용할 수 있습니다.\nEmail과 비밀번호를 등록해 주세요." />
+        android:textColor="@color/colorAccent"
+        android:text="회원가입을 해야 정상적으로 사용할 수 있습니다.\n아래 항목들을 작성해 주세요." />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -42,10 +43,26 @@
             android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="52dp"
-            android:hint="이메일"
+            android:hint="아이디(E-mail)"
             android:textSize="8pt"
             android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="52dp"
+            android:hint="비밀번호"
+            android:textSize="8pt"
+            android:inputType="textPassword" />
+
+    </android.support.design.widget.TextInputLayout>
+
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -56,25 +73,104 @@
             android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="52dp"
-            android:hint="이름"
+            android:hint="이름(실명)"
             android:textSize="8pt"
             android:inputType="textPersonName" />
+
     </android.support.design.widget.TextInputLayout>
 
-
-    <android.support.design.widget.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="118dp">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="15dp"
+        android:gravity="center">
 
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="305dp"
-            android:layout_height="47dp"
-            android:layout_marginLeft="52dp"
-            android:hint="비밀번호"
-            android:textSize="8pt"
-            android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="115dp"
+            android:layout_gravity="center"
+            android:text="성별"
+            android:textSize="8pt" />
+
+        <RadioButton
+            android:id="@+id/buttonSex_Male"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="남" />
+
+       <!-- <View
+            android:layout_width="2dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center_vertical"
+            android:background="#cccccc" />-->
+
+        <RadioButton
+            android:id="@+id/buttonSex_Female"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="여" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="150dp"
+            android:text="우리동네"
+            android:textSize="8pt" />
+
+        <!--<TextView
+            android:id="@+id/textLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="hello"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>-->
+
+         <Spinner
+             android:id="@+id/spinner_location"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:gravity="center_vertical"
+             android:entries="@array/city" />
+
+     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="115dp"
+            android:layout_gravity="center"
+            android:text="신장"
+            android:textSize="8pt" />
+
+        <Spinner
+            android:id="@+id/spinner_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:entries="@array/height" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonSignup"
@@ -83,7 +179,7 @@
         android:layout_gravity="center_horizontal"
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimary"
-        android:textSize="7.7pt"
+        android:textSize="8pt"
         android:text="회원가입" />
 
 

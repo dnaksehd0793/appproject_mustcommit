@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="city">
+        <item>서울</item>
+        <item>인천</item>
+        <item>대전</item>
+        <item>부산</item>
+        <item>광주</item>
+        <item>경기</item>
+        <item>강원</item>
+        <item>충청</item>
+        <item>경상</item>
+        <item>전라</item>
+        <item>제주</item>
+    </string-array>
+
+    <string-array name="height">
+        <item>150~160 cm</item>
+        <item>160~170 cm</item>
+        <item>170~180 cm</item>
+        <item>180~190 cm</item>
+        <item>190~200 cm</item>
+    </string-array>
+
+    <string-array name="cost">
+        <item>10000원</item>
+        <item>15000원</item>
+        <item>20000원</item>
+        <item>25000원</item>
+        <item>30000원</item>
+        <item>35000원</item>
+        <item>40000원</item>
+        <item>45000원</item>
+        <item>50000원</item>
+    </string-array>
+
+    <string-array name="teamno">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+</resources>
