@@ -1,14 +1,12 @@
 package onc.appproject.firstonc;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -30,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private int[] tabIcons = {
-            R.drawable.home,
-            R.drawable.team,
-            R.drawable.league,
-            R.drawable.uniform
+            R.drawable.selector_home,
+            R.drawable.selector_team,
+            R.drawable.selector_league,
+            R.drawable.selector_uniform
     };
 
     @Override
@@ -83,22 +81,22 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         //tabOne.setText("홈");
-        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.home, 0, 0);
+        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.selector_home, 0, 0);
         tabLayout.getTabAt(0).setCustomView(tabOne);
 
         TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         //tabTwo.setText("팀");
-        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.team, 0, 0);
+        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.selector_team, 0, 0);
         tabLayout.getTabAt(1).setCustomView(tabTwo);
 
         TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         //tabThree.setText("대회");
-        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.league, 0, 0);
+        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.selector_league, 0, 0);
         tabLayout.getTabAt(2).setCustomView(tabThree);
 
         TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         //tabThree.setText("라커룸");
-        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.uniform, 0, 0);
+        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.selector_uniform, 0, 0);
         tabLayout.getTabAt(3).setCustomView(tabFour);
     }
     private void setupViewPager(ViewPager viewPager) {
