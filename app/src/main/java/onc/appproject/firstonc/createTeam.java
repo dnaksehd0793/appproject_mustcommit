@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -31,7 +33,8 @@ public class createTeam extends AppCompatActivity {
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
     private static ArrayList<User> userArraylist = new ArrayList<>();
     boolean checker;
-
+    Spinner spinner_location;
+    String region;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +43,26 @@ public class createTeam extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser =  mFirebaseAuth.getCurrentUser();
         textteamname = (TextView) findViewById(R.id.textteamname);
-        textteamregion = (TextView) findViewById(R.id.textteamregion);
+    //    textteamregion = (TextView) findViewById(R.id.textteamregion);
         teammakebutton = (Button) findViewById(R.id.teammakebutton);
         checker = false;
+
+        spinner_location = (Spinner)findViewById(R.id.spinner_location);
+        region = (String)spinner_location.getSelectedItem();
+        spinner_location.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View arg1,
+                                       int position, long id) {
+                region = (String)spinner_location.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
 
         findViewById(R.id.officialcheckBox).setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
@@ -72,8 +92,8 @@ public class createTeam extends AppCompatActivity {
 
 
         teammakebutton.setOnClickListener((view -> {
-            Team team = new Team(textteamname.getText().toString(),textteamregion.getText().toString(),
-                    checker,teamleader);
+            //Team team = new Team(textteamname.getText().toString(),textteamregion.getText().toString(), checker,teamleader);
+            Team team = new Team(textteamname.getText().toString(),region, checker,teamleader);
             databaseReference.child("team").push().setValue(team);
             //FirebaseDatabase.getInstance().getReference().child("users").child(mFirebaseAuth.)
             //DatabaseManager.setteaminfoinuser(team);

@@ -37,10 +37,10 @@ public class createLeague extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser =  mFirebaseAuth.getCurrentUser();
         textleaguename = (TextView)findViewById(R.id.textleaguename);
-        textleagueschedule = (TextView)findViewById(R.id.textleagueschedule);
+       // textleagueschedule = (TextView)findViewById(R.id.textleagueschedule);
         textleaguesponsor = (TextView)findViewById(R.id.textleaguesponsor);
         textleaguejoincost = (TextView)findViewById(R.id.textleaguejoincost);
-        textleagueteamnumber = (TextView)findViewById(R.id.textleagueteamnumber);
+      //  textleagueteamnumber = (TextView)findViewById(R.id.textleagueteamnumber);
         leaguemakebutton = (Button)findViewById(R.id.leaguemakebutton);
 
         DatabaseReference databaseRef = firebaseDatabase.getReference("users");

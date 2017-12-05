@@ -9,8 +9,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity  {
     //define view objects
     EditText editTextEmail;
     EditText editTextPassword;
@@ -31,9 +34,17 @@ public class SignInActivity extends AppCompatActivity {
     Button buttonSignup;
     TextView textviewMessage;
     ProgressDialog progressDialog;
+
+    RadioButton buttonSex_Male;
+    RadioButton buttonSex_Female;
+    Spinner spinner_height;
+    Spinner spinner_location;
     //define firebase object
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
+    String region;
+    String height;
+    String sex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,20 +58,49 @@ public class SignInActivity extends AppCompatActivity {
         //textviewMessage = (TextView) findViewById(R.id.textviewMessage);
         buttonSignup = (Button) findViewById(R.id.buttonSignup);
         progressDialog = new ProgressDialog(this);
+        buttonSex_Male = (RadioButton) findViewById(R.id.buttonSex_Male);
+        buttonSex_Female = (RadioButton) findViewById(R.id.buttonSex_Female);
+        RadioGroup rg = (RadioGroup)findViewById(R.id.radioGroup1);
 
 
-      /*  final TextView tv = (TextView)findViewById(R.id.textLocation);
-        Spinner s = (Spinner)findViewById(R.id.spinner_location);
-
-        //spinner click event
-        s.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spinner_location = (Spinner)findViewById(R.id.spinner_location);
+        region = (String)spinner_location.getSelectedItem();
+        spinner_location.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                tv.setText("지역 :" + position + parent.getItemAtPosition(position));
+            public void onItemSelected(AdapterView<?> parent, View arg1,
+                                       int position, long id) {
+                region = (String)spinner_location.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
-*/
+        spinner_height = (Spinner)findViewById(R.id.spinner_height);
+        height = (String)spinner_height.getSelectedItem();
+        spinner_height.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View arg1,
+                                       int position, long id) {
+                height = (String)spinner_height.getSelectedItem();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.buttonSex_Male){
+                    sex = buttonSex_Male.getText().toString();
+                }else{
+                    sex = buttonSex_Female.getText().toString();
+                }
+            }
+        });
         //button click event
         buttonSignup.setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -95,8 +135,11 @@ public class SignInActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
 
                             FirebaseUser user = task.getResult().getUser();
-                            User userModel = new User(user.getEmail(),editTextName.getText().toString(),null);
-                            databaseReference.child("users").child(user.getUid()).setValue(userModel);
+                            User userModel = new User(user.getEmail(),editTextName.getText().toString(),null,sex,region,height );
+                          //  User inputUser = new User(user.getEmail(),editTextName.getText().toString(),null,null,region.getText().toString(),height.getText().toString());
+                            // User(String useremail, String username, Team sosockteam, String sex, String downtown, String userheight)
+
+                            databaseReference.child("users").child(user.getUid()).setValue( userModel );
                             finish();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
@@ -109,5 +152,6 @@ public class SignInActivity extends AppCompatActivity {
                 });
 
     }
+
 
 }
