@@ -43,7 +43,7 @@
             android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="52dp"
-            android:hint="아이디(E-mail)"
+            android:hint="아이디 (E-mail)"
             android:textSize="8pt"
             android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
@@ -73,7 +73,7 @@
             android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="52dp"
-            android:hint="이름(실명)"
+            android:hint="이름 (실명)"
             android:textSize="8pt"
             android:inputType="textPersonName" />
 
@@ -127,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginRight="150dp"
+            android:layout_marginRight="90dp"
             android:text="우리동네"
             android:textSize="8pt" />
 
@@ -141,7 +141,7 @@
 
          <Spinner
              android:id="@+id/spinner_location"
-             android:layout_width="wrap_content"
+             android:layout_width="150dp"
              android:layout_height="wrap_content"
              android:gravity="center_vertical"
              android:entries="@array/city" />
@@ -158,14 +158,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="115dp"
+            android:layout_marginRight="90dp"
             android:layout_gravity="center"
             android:text="신장"
             android:textSize="8pt" />
 
         <Spinner
             android:id="@+id/spinner_height"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:entries="@array/height" />
