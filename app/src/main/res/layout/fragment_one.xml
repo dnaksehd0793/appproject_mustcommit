@@ -21,7 +21,9 @@
         android:singleLine="true"
         android:ellipsize="marquee"
         android:focusable="true"
-        android:textSize="25dp"
+        android:background="#545454"
+        android:textSize="19dp"
+        android:textColor="@color/colorPrimary"
         android:text= "'김정은 23점' 우리은행, KEB하나은행에 70:57 승리
     농구 대표팀 김종규, 왼무릎 인대 파열…6주 이상 결장 불가피
     ‘농구월드컵 1승 1패’ 허재호, 희망을 보다

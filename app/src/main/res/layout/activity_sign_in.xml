@@ -89,14 +89,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="115dp"
+            android:layout_marginRight="110dp"
             android:layout_gravity="center"
             android:text="성별"
             android:textSize="8pt" />
+
         <RadioGroup
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/buttonSex_Male"
@@ -113,11 +115,13 @@
 
         <RadioButton
             android:id="@+id/buttonSex_Female"
-            android:layout_width="75dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="여" />
+
         </RadioGroup>
+
     </LinearLayout>
 
     <LinearLayout

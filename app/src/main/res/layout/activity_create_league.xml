@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginLeft="55dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="85dp"
         android:text="대회 등록"
         android:textStyle="bold"
         android:textColor="#515151"
@@ -62,6 +62,22 @@
             android:layout_margin="5dp"
             android:textSize="8pt"
             android:hint="주최" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/textleagueregion"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:textSize="8pt"
+            android:hint="장소" />
+
     </android.support.design.widget.TextInputLayout>
 
     <!--<android.support.design.widget.TextInputLayout
@@ -168,7 +184,7 @@
         android:layout_gravity="center"
         android:layout_width="297dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimary"
         android:text="대회 생성"
