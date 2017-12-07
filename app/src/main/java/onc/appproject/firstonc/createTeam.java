@@ -43,7 +43,7 @@ public class createTeam extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser =  mFirebaseAuth.getCurrentUser();
         textteamname = (TextView) findViewById(R.id.textteamname);
-    //    textteamregion = (TextView) findViewById(R.id.textteamregion);
+        //    textteamregion = (TextView) findViewById(R.id.textteamregion);
         teammakebutton = (Button) findViewById(R.id.teammakebutton);
         checker = false;
 

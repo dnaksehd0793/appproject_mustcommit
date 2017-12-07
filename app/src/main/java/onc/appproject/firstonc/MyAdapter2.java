@@ -32,10 +32,10 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
             super(v);
 
             mName = (TextView) v.findViewById(R.id.info_Lname);
-            mAge = (TextView) v.findViewById(R.id.info_Lschedule);
+            /*mAge = (TextView) v.findViewById(R.id.info_Lschedule);
             mEmail = (TextView) v.findViewById(R.id.info_Lsponsor);
             mEmail2 = (TextView) v.findViewById(R.id.info_Lcost);
-            mEmail3 = (TextView) v.findViewById(R.id.info_Lteamnumber);
+            mEmail3 = (TextView) v.findViewById(R.id.info_Lteamnumber);*/
             leaguename = mName.getText().toString();
             v.setOnClickListener(this);
 
@@ -66,10 +66,10 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.mName.setText(mDataset.get(position).getName());
-        holder.mAge.setText(String.valueOf(mDataset.get(position).getSchedule())); //int를 가져온다는점 유의
+        /*holder.mAge.setText(String.valueOf(mDataset.get(position).getSchedule())); //int를 가져온다는점 유의
         holder.mEmail.setText(mDataset.get(position).getSponsor());
         holder.mEmail2.setText(mDataset.get(position).getJoincost());
-        holder.mEmail3.setText(mDataset.get(position).getTeamnumber());
+        holder.mEmail3.setText(mDataset.get(position).getTeamnumber());*/
         //holder.mPhoto.setImageBitmap(mDataset.get(position).getPhoto()); //첨부된 이미지를 연결해줘야 하는데 이건 또 복잡하다. 이건 나중에...
 
     }
