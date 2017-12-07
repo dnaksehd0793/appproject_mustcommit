@@ -4,21 +4,63 @@
     android:layout_height="match_parent">
 
 
-    <TextView
+    <ImageView
+        android:id="@+id/profile_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="four"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
-        android:id="@+id/textView2" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/person" />
 
-    <Button
-        android:id="@+id/teammanagebutton"
+    <TextView
+        android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:text="팀관리버튼" />
+        android:layout_alignTop="@+id/profile_photo"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/profile_photo"
+        android:layout_toRightOf="@+id/profile_photo"
+        android:text="이름" />
+
+    <TextView
+        android:id="@+id/profile_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/profile_photo"
+        android:layout_alignLeft="@+id/profile_name"
+        android:layout_alignStart="@+id/profile_name"
+        android:layout_marginBottom="6dp"
+        android:text="지역" />
+
+    <TextView
+        android:id="@+id/profile_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/profile_region"
+        android:layout_alignBottom="@+id/profile_region"
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_toEndOf="@+id/profile_region"
+        android:layout_toRightOf="@+id/profile_region"
+        android:text="신장" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/profile_photo"
+        android:layout_gravity="center"
+        android:layout_marginTop="14dp"
+        android:background="#cccccc" />
+
+
+
 
 </RelativeLayout>

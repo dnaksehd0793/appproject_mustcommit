@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="150dp"
-            android:text="우리동네"
+            android:text="활동지역"
             android:textSize="8pt" />
 
         <!--<TextView
@@ -97,8 +97,6 @@
             android:entries="@array/city" />
 
     </LinearLayout>
-
-
 
     <CheckBox
         android:id="@+id/officialcheckBox"
