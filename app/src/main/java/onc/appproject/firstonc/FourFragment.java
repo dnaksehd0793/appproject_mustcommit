@@ -21,17 +21,13 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import static onc.appproject.firstonc.MyAdapter.mFirebaseUser;
+
 public class FourFragment extends Fragment {
-    public TextView tname;
-    public TextView tregion;
-    public TextView tleader;
-    User getUser  = new User();
-    Team getTeam = new Team();
-    static FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference = firebaseDatabase.getReference();
-    private static ArrayList<User> userArraylist = new ArrayList<>();
-    private static ArrayList<Team> teamArraylist = new ArrayList<>();
+    public TextView myname;
+    public TextView myregion;
+    public TextView myheight;
+
     public FourFragment() {
         // Required empty public constructor
     }
@@ -40,6 +36,7 @@ public class FourFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TypefaceUtil.overrideFont(getActivity(), "SERIF", "fonts/Roboto-Regular.ttf");
+
     }
 
 
@@ -47,26 +44,14 @@ public class FourFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_four, container, false);
-       /* tname = (TextView)view.findViewById(R.id.team_name);
-        tname.setText(mFirebaseUser.getEmail());
+        myname = (TextView)view.findViewById(R.id.profile_name);
+        myregion = (TextView)view.findViewById(R.id.profile_region);
+        myheight = (TextView)view.findViewById(R.id.profile_height);
 
-        getUser = DatabaseManager.getUser(mFirebaseUser.getEmail());
-        User sojunghaluser = new User();
-        if(getUser.getUsername()!=null){
-            getTeam = DatabaseManager.findteambyuser(getUser);
-        }
-        if(getTeam!=null)
-        {
-            Toast.makeText(view.getContext(), getTeam.getTeamName()+"팀이름!", Toast.LENGTH_SHORT).show();
-        }
-        Button button3 = (Button)view.findViewById(R.id.button3);
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(), getTeam.getTeamName()+"팀이름!", Toast.LENGTH_LONG).show();
-            }
-        });*/
+        User myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
+        myname.setText(myuser.getUsername());
+        myregion.setText(myuser.getUserregion());
+        myheight.setText(myuser.getUserheight());
        return view;
     }
-
 }
