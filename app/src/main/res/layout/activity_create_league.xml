@@ -16,7 +16,7 @@
         android:layout_marginTop="85dp"
         android:text="대회 등록"
         android:textStyle="bold"
-        android:textColor="#515151"
+        android:textColor="#106897"
         android:textSize="14pt" />
 
     <View
