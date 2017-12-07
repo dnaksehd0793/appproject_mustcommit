@@ -41,6 +41,8 @@ public class League {
     Spinner spinner_teamnum;
     String teamnum;*/
     public String getName(){return  name;}
+    public String getDate(){return date;}
+    public String getRegion(){return region;}
     public String getSchedule(){return schedule;}
     public String getSponsor(){return sponsor;}
     //public String getJoincost(){return joincost;}

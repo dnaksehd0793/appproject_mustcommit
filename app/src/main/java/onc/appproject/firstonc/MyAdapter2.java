@@ -24,19 +24,18 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         public TextView mName;
         public TextView mAge;
         public TextView mEmail;
-        public TextView mEmail2;
-        public TextView mEmail3;
-        public ImageView mPhoto;
+
         String leaguename;
+
         public ViewHolder(View v) {
             super(v);
 
             mName = (TextView) v.findViewById(R.id.info_Lname);
-            /*mAge = (TextView) v.findViewById(R.id.info_Lschedule);
-            mEmail = (TextView) v.findViewById(R.id.info_Lsponsor);
-            mEmail2 = (TextView) v.findViewById(R.id.info_Lcost);
-            mEmail3 = (TextView) v.findViewById(R.id.info_Lteamnumber);*/
+            mAge = (TextView)v.findViewById(R.id.info_Ldate);
+            mEmail = (TextView)v.findViewById(R.id.info_Lregion);
+
             leaguename = mName.getText().toString();
+
             v.setOnClickListener(this);
 
         }
@@ -66,6 +65,8 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.mName.setText(mDataset.get(position).getName());
+        holder.mAge.setText(mDataset.get(position).getDate());
+        holder.mEmail.setText(mDataset.get(position).getRegion());
         /*holder.mAge.setText(String.valueOf(mDataset.get(position).getSchedule())); //int를 가져온다는점 유의
         holder.mEmail.setText(mDataset.get(position).getSponsor());
         holder.mEmail2.setText(mDataset.get(position).getJoincost());

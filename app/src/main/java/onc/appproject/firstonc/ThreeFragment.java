@@ -44,8 +44,6 @@ public class ThreeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_three, container, false);
 
         itemArrayList = new ArrayList<>();
-        //itemArrayList.add(new League("a","b","c","d","e",new User("a","b")));
-        //itemArrayList.add(new League("a","b","c","d","e",new User("a","b")));
         mRecyclerView = (RecyclerView)  rootView.findViewById(R.id.my_recycler_view2);
         mRecyclerView.setHasFixedSize(true);//옵션
         //Linear layout manager 사용
