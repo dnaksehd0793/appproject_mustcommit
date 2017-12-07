@@ -44,11 +44,17 @@ public class OneFragment extends Fragment{
         newsView.setText(newsstring);*/
         newsView.setSelected(true);
 
-        Button button = (Button)rootView.findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener(){
+        Button button1 = (Button)rootView.findViewById(R.id.newsIcon1);
+        Button button2 = (Button)rootView.findViewById(R.id.newsIcon2);
+        Button button3 = (Button)rootView.findViewById(R.id.newsIcon3);
+        Button button4 = (Button)rootView.findViewById(R.id.newsIcon4);
+
+
+
+        button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://sports.news.naver.com/basketball/index.nhn"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.sports.naver.com/basketball/index.nhn"));
                 //http://www.koreabasketball.or.kr/servlets/org/Main 농구협회
               //  getActivity().finish();
                 //Intent intent = new Intent(getActivity(), createTeam.class);
@@ -56,6 +62,34 @@ public class OneFragment extends Fragment{
                 startActivity(intent);
             }
         });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://sports.media.daum.net/sports/basketvolley/"));
+                startActivity(intent);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://sports.news.nate.com/basketvolley/"));
+                startActivity(intent);
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.nba.com/news#/"));
+                startActivity(intent);
+            }
+        });
+
+
+
+
       /*  VideoView vv = (VideoView)rootView.findViewById(R.id.videoView1);
 
         // MediaController : 특정 View 위에서 작동하는 미디어 컨트롤러 객체

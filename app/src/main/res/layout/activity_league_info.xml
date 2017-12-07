@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="65dp"
             android:layout_marginBottom="10dp"
             android:text="대회 정보"
             android:textSize="30dp"
@@ -39,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
+            android:layout_marginTop="10dp"
             android:textSize="16dp"
             android:text="대회주최"/>
 
@@ -47,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
             android:textSize="16dp"
+            android:layout_marginTop="10dp"
             android:text="대회장소"/>
 
         <TextView
@@ -54,6 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
             android:textSize="16dp"
+            android:layout_marginTop="10dp"
             android:text="대회일시"/>
 
         <TextView
@@ -61,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
             android:textSize="16dp"
+            android:layout_marginTop="10dp"
             android:text="참가비"/>
 
         <TextView
@@ -68,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
             android:textSize="16dp"
+            android:layout_marginTop="10dp"
             android:text="대회요강"/>
 
         <TextView
@@ -102,7 +107,7 @@
 
             <View
                 android:layout_width="1dp"
-                android:layout_height="200dp"
+                android:layout_height="160dp"
                 android:layout_marginTop="30dp"
                 android:background="#cccccc"
                 android:layout_gravity="center"/>
