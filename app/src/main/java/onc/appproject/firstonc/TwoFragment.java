@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +19,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class TwoFragment extends Fragment {
+public class TwoFragment extends Fragment  {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -89,6 +91,8 @@ public class TwoFragment extends Fragment {
             }
         });
 
+
+
         return rootView;
     }
     public void updetail()
@@ -97,4 +101,8 @@ public class TwoFragment extends Fragment {
         Intent intent = new Intent(getActivity(), createTeam.class);
         startActivity(intent);
     }
+
+
+
+
 }

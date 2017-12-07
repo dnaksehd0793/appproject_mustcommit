@@ -28,6 +28,10 @@ public class FourFragment extends Fragment {
     public TextView myregion;
     public TextView myheight;
 
+    public TextView myteamname;
+    public TextView myteamregion;
+    public TextView myteamleader;
+
     public FourFragment() {
         // Required empty public constructor
     }
@@ -48,10 +52,19 @@ public class FourFragment extends Fragment {
         myregion = (TextView)view.findViewById(R.id.profile_region);
         myheight = (TextView)view.findViewById(R.id.profile_height);
 
+        /*myteamname = (TextView)view.findViewById(R.id.myteamname);
+        myteamregion = (TextView)view.findViewById(R.id.myteamregion);
+        myteamleader = (TextView)view.findViewById(R.id.myteamleader);*/
+
         User myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
+        Team myteam = DatabaseManager.findteambyuser(myuser);
         myname.setText(myuser.getUsername());
         myregion.setText(myuser.getUserregion());
         myheight.setText(myuser.getUserheight());
+
+        /*myteamname.setText(myteam.getTeamName());
+        myteamregion.setText(myteam.getTeamregion());
+        myteamleader.setText(myteam.getTeamleader().getUsername());*/
        return view;
     }
 }
