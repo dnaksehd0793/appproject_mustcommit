@@ -2,6 +2,7 @@ package onc.appproject.firstonc;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,7 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
 {
     private static ArrayList<League> mDataset;
     static ArrayList<League> leagueArraylist = new ArrayList<>();
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener{
         // 사용될 항목들 선언
         public TextView mName;
         public TextView mAge;
@@ -37,12 +38,18 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
             leaguename = mName.getText().toString();
 
             v.setOnClickListener(this);
-
+            v.setOnLongClickListener(this);
         }
         @Override
         public void onClick(View v){
             leagueArraylist= new ArrayList<>();
             dialogshow(v,getAdapterPosition(),leaguename);
+        }
+        @Override
+        public boolean onLongClick(View view) {
+            Intent intent = new Intent(view.getContext(),LeagueInfoActivity.class);
+            view.getContext().startActivity(intent);
+            return true;
         }
     }
 

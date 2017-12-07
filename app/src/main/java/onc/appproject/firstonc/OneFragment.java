@@ -52,6 +52,7 @@ public class OneFragment extends Fragment{
                 //http://www.koreabasketball.or.kr/servlets/org/Main 농구협회
               //  getActivity().finish();
                 //Intent intent = new Intent(getActivity(), createTeam.class);
+                //Intent intent = new Intent(getActivity(),TeamInfoActivity.class);
                 startActivity(intent);
             }
         });

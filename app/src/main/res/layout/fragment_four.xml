@@ -69,7 +69,8 @@
         android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="157dp"
-        android:text="여기에는 참가한 팀 카드뷰" />
+        android:text="여기에는 참가한 팀 카드뷰"
+        android:id="@+id/textView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,7 +81,36 @@
         android:text="여기에는 참가한 대회 카드뷰"
         android:id="@+id/textView" />
 
+    <TextView
+        android:id="@+id/myteamname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="35dp"
+        android:layout_toLeftOf="@+id/profile_region"
+        android:layout_toStartOf="@+id/profile_region"
+        android:text="내팀이름" />
 
+    <TextView
+        android:id="@+id/myteamregion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/myteamname"
+        android:layout_alignBottom="@+id/myteamname"
+        android:layout_centerHorizontal="true"
+        android:text="내팀지역" />
+
+    <TextView
+        android:id="@+id/myteamleader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/myteamregion"
+        android:layout_alignBottom="@+id/myteamregion"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:text="팀장이름" />
 
 
 </RelativeLayout>

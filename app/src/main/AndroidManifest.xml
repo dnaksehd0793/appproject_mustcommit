@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="onc.appproject.firstonc">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,7 +26,9 @@
         </activity>
         <activity android:name=".SignInActivity" />
         <activity android:name=".createTeam" />
-        <activity android:name=".createLeague"></activity>
+        <activity android:name=".createLeague" />
+        <activity android:name=".TeamInfoActivity" />
+        <activity android:name=".LeagueInfoActivity"></activity>
     </application>
 
 </manifest>

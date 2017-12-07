@@ -58,6 +58,8 @@ public class User {
     public String getUsername(){
         return username;
     }
+    public String getUserheight(){return userheight;}
+    public String getUserregion(){return downtown;}
     public Boolean getTeampermission(){return teampermission;}
 
 }
