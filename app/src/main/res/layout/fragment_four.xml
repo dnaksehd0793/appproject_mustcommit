@@ -21,11 +21,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/profile_photo"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/profile_photo"
         android:layout_toRightOf="@+id/profile_photo"
+        android:textSize="16dp"
         android:text="이름" />
 
     <TextView
@@ -36,6 +37,7 @@
         android:layout_alignLeft="@+id/profile_name"
         android:layout_alignStart="@+id/profile_name"
         android:layout_marginBottom="6dp"
+        android:textSize="16dp"
         android:text="지역" />
 
     <TextView
@@ -44,10 +46,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/profile_region"
         android:layout_alignBottom="@+id/profile_region"
-        android:layout_marginLeft="45dp"
-        android:layout_marginStart="45dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginStart="70dp"
         android:layout_toEndOf="@+id/profile_region"
         android:layout_toRightOf="@+id/profile_region"
+        android:textSize="16dp"
         android:text="신장" />
 
     <View
@@ -59,6 +62,23 @@
         android:layout_gravity="center"
         android:layout_marginTop="14dp"
         android:background="#cccccc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="157dp"
+        android:text="여기에는 참가한 팀 카드뷰" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="157dp"
+        android:text="여기에는 참가한 대회 카드뷰"
+        android:id="@+id/textView" />
 
 
 

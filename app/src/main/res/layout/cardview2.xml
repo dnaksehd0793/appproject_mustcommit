@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="3dp"
         card_view:cardCornerRadius="4dp">
 
         <LinearLayout
@@ -97,8 +96,8 @@
 
             <ImageView
                 android:id="@+id/submit_area"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
                 android:src="@drawable/submit" />
 
             <TextView
@@ -111,10 +110,10 @@
                 android:layout_alignTop="@id/submit_area"
                 android:gravity="center"
 
-                android:paddingLeft="20dp"
-                android:text="신청하기"
+                android:paddingLeft="10dp"
+                android:text="신청"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
         </RelativeLayout>

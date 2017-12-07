@@ -13,6 +13,15 @@
         android:text="네이버 농구 기사" />
 
 
+
+
+
+
+
+
+
+
+
     <TextView
         android:id="@+id/newsView"
         android:layout_width="match_parent"
