@@ -36,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     private static DatabaseReference databaseReference = firebaseDatabase.getReference();
     private static ArrayList<Team> mDataset; //MainActivity에 item class를 정의해 놓았음
     static  FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
         // 사용될 항목들 선언
         public TextView mName;
         public TextView mAge;
@@ -49,16 +49,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
 
         public ViewHolder(View v) {
             super(v);
+
             mName = (TextView) v.findViewById(R.id.info_name);
             mAge = (TextView) v.findViewById(R.id.info_region);
             teamname = mName.getText().toString();
 
             //mteamleadername = (TextView) v.findViewById(R.id.teamleadername);
             v.setOnClickListener(this);
-
+            v.setOnLongClickListener(this);
         }
         @Override
         public void onClick(View v){
+
            // String tempstring = DatabaseManager.findUserByKey(mFirebaseUser.getUid());
             String teamkey = DatabaseManager.getTeam(mDataset.get(getAdapterPosition()).getTeamName());
             User loginuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
@@ -71,8 +73,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
                     dialogshow(v,getAdapterPosition(),teamkey,loginuser);
                 }
             },200);
-
             //dialogshow(v,getAdapterPosition(),teamkey,loginuser);
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            Intent intent = new Intent(view.getContext(),TeamInfoActivity.class);
+            view.getContext().startActivity(intent);
+            return true;
         }
     }
 
