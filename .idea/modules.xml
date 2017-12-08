@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/firstONC.iml" filepath="$PROJECT_DIR$/firstONC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appproject_mustcommit.iml" filepath="$PROJECT_DIR$/appproject_mustcommit.iml" />
+      <module fileurl="file://D:\appproject_mustcommit\appproject_mustcommit\firstONC.iml" filepath="D:\appproject_mustcommit\appproject_mustcommit\firstONC.iml" />
     </modules>
   </component>
 </project>

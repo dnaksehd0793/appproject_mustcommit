@@ -36,14 +36,14 @@ public class OneFragment extends Fragment{
         // Inflate the layout for this fragment
 
         View rootView = inflater.inflate(R.layout.fragment_one, container, false);
-        /*newsView = (TextView)rootView.findViewById(R.id.newsView);
-       /* String newsstring = "'김정은 23점' 우리은행, KEB하나은행에 70:57 승리" +
+        newsView = (TextView)rootView.findViewById(R.id.newsView);
+       String newsstring = "'김정은 23점' 우리은행, KEB하나은행에 70:57 승리" +
                 "농구 대표팀 김종규, 왼무릎 인대 파열…6주 이상 결장 불가피" +
                 "‘농구월드컵 1승 1패’ 허재호, 희망을 보다" +
                 "앤써니, 정규시즌 누적 득점 23위 등극!" +
                 "`타운스 32점` 미네소타, 부커 빠진 피닉스 제압";
         newsView.setText(newsstring);
-        newsView.setSelected(true);*/
+        newsView.setSelected(true);
 
         ImageView button1 = (ImageView)rootView.findViewById(R.id.newsIcon1);
         ImageView button2 = (ImageView)rootView.findViewById(R.id.newsIcon2);

@@ -52,12 +52,12 @@ public class FourFragment extends Fragment {
         myregion = (TextView)view.findViewById(R.id.profile_region);
         myheight = (TextView)view.findViewById(R.id.profile_height);
 
-        /*myteamname = (TextView)view.findViewById(R.id.myteamname);
+        myteamname = (TextView)view.findViewById(R.id.myteamname);
         myteamregion = (TextView)view.findViewById(R.id.myteamregion);
-        myteamleader = (TextView)view.findViewById(R.id.myteamleader);*/
+        myteamleader = (TextView)view.findViewById(R.id.myteamleader);
 
         User myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
-        Team myteam = DatabaseManager.findteambyuser(myuser);
+        //Team myteam = DatabaseManager.findteambyuser(myuser);
         myname.setText(myuser.getUsername());
         myregion.setText(myuser.getUserregion());
         myheight.setText(myuser.getUserheight());
