@@ -78,7 +78,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
 
         @Override
         public boolean onLongClick(View view) {
+            //Team getTeambyname(String teamname)
+            Team team = DatabaseManager.getTeambyname(mDataset.get(getAdapterPosition()).getTeamName());
             Intent intent = new Intent(view.getContext(),TeamInfoActivity.class);
+            //intent.putExtra("team_info",team);
             view.getContext().startActivity(intent);
             return true;
         }

@@ -102,6 +102,27 @@ public class DatabaseManager {
         });
         return publlicteamkey;
     }
+    public static Team getTeambyname(String teamname)
+    {
+        DatabaseReference databaseRef = firebaseDatabase.getReference("team");
+        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
+                    Team inputteam = (Team)fileSnapshot.getValue(Team.class);
+                    if(inputteam.getTeamName().equals(teamname))
+                    {
+                        sosockteam= inputteam;
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return sosockteam;
+    }
     public static void setteaminfoinuser(Team team)
     {
         User user = new User();
