@@ -62,38 +62,26 @@ public class FourFragment extends Fragment {
         myname.setText(myuser.getUsername());
         myregion.setText(myuser.getUserregion());
         myheight.setText(myuser.getUserheight());
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference databaseRef = database.getReference("team");
-
-        databaseRef.addValueEventListener(new ValueEventListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
-
-                    Team readTeam= fileSnapshot.getValue(Team.class);
-                    if(readTeam.getTeamleader().getUsername().equals(myuser.getUsername()))
-                    {
-                        myteam = readTeam;
-                        break;
+            public void run() {
+                User myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
+                //Team myteam = DatabaseManager.findteambyuser(myuser);
+                myname.setText(myuser.getUsername());
+                myregion.setText(myuser.getUserregion());
+                myheight.setText(myuser.getUserheight());
+                myteam = DatabaseManager.showmyteam(myuser.getUsername());
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        myteam = DatabaseManager.showmyteam(myuser.getUsername());
+                        myteamname.setText(myteam.getTeamName());
+                        myteamregion.setText(myteam.getTeamregion());
+                        myteamleader.setText(myteam.getTeamleader().getUsername());
                     }
-                }
+                },200);
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        if(myteam!=null)
-        {
-            myteamname.setText(myteam.getTeamName());
-            myteamregion.setText(myteam.getTeamregion());
-            myteamleader.setText(myteam.getTeamleader().getUsername());
-        }
-        /*myteamname.setText(myteam.getTeamName());
-        myteamregion.setText(myteam.getTeamregion());
-        myteamleader.setText(myteam.getTeamleader().getUsername());*/
+        },200);
        return view;
     }
 }

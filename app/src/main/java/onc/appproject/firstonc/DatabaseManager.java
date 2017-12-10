@@ -21,7 +21,7 @@ public class DatabaseManager {
     public static String publlicteamkey = null;
     public static String publicuserkey = null;
     public static Team sosockteam = null;
-
+    public static Team myteam = null;
 
 
     public static String findUserByKey(String key){
@@ -174,6 +174,33 @@ public class DatabaseManager {
 
         return sosockteam;
     }
+    public static Team showmyteam(String username)
+    {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference databaseRef = database.getReference("team");
+
+        databaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
+
+                    Team readTeam= fileSnapshot.getValue(Team.class);
+                    if(readTeam.getTeamleader().getUsername().equals(username))
+                    {
+                        myteam = readTeam;
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return myteam;
+    }
+
 
 
 }
