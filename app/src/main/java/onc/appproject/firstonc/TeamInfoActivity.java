@@ -72,6 +72,7 @@ public class TeamInfoActivity extends AppCompatActivity {
                             userArraylist.add(inputteam);
                         }
                         mAdapter.notifyDataSetChanged();
+
                     }
 
                     @Override

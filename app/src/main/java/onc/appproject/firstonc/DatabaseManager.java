@@ -21,6 +21,9 @@ public class DatabaseManager {
     public static String publlicteamkey = null;
     public static String publicuserkey = null;
     public static Team sosockteam = null;
+
+
+
     public static String findUserByKey(String key){
         String returnstring = null;
         DatabaseReference databaseRef = firebaseDatabase.getReference("users");

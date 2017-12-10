@@ -94,12 +94,31 @@
         android:text="내팀이름" />
 
     <TextView
+        android:id="@+id/myteamname2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/myteamname"
+        android:layout_alignStart="@+id/myteamname"
+        android:layout_centerVertical="true"
+        android:text="내팀이름" />
+
+    <TextView
         android:id="@+id/myteamregion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/myteamname"
         android:layout_alignBottom="@+id/myteamname"
         android:layout_centerHorizontal="true"
+        android:text="내팀지역" />
+
+    <TextView
+        android:id="@+id/myteamregion2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/myteamname2"
+        android:layout_alignBottom="@+id/myteamname2"
+        android:layout_toEndOf="@+id/profile_region"
+        android:layout_toRightOf="@+id/profile_region"
         android:text="내팀지역" />
 
     <TextView
@@ -110,6 +129,16 @@
         android:layout_alignBottom="@+id/myteamregion"
         android:layout_toEndOf="@+id/textView2"
         android:layout_toRightOf="@+id/textView2"
+        android:text="팀장이름" />
+
+    <TextView
+        android:id="@+id/myteamleader2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/myteamregion2"
+        android:layout_alignBottom="@+id/myteamregion2"
+        android:layout_toEndOf="@+id/profile_height"
+        android:layout_toRightOf="@+id/profile_height"
         android:text="팀장이름" />
 
 
