@@ -3,6 +3,7 @@ package onc.appproject.firstonc;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +12,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 import static onc.appproject.firstonc.MyAdapter.dialogshow;
+import static onc.appproject.firstonc.MyAdapter.mFirebaseUser;
 
 
 public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
 {
     private static ArrayList<League> mDataset;
     static ArrayList<League> leagueArraylist = new ArrayList<>();
+
+    static User myuser = null;
+    static Team myteam = null;
+
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener{
         // 사용될 항목들 선언
         public TextView mName;
@@ -42,7 +54,20 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         }
         @Override
         public void onClick(View v){
+          /*  myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
+            Team team = DatabaseManager.getTeambyname(myuser.getUsername());
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
+                    Team team = DatabaseManager.getTeambyname(myuser.getUsername());
+                    //Toast.makeText(v.getContext(), teamkey+ loginuser .getUsername()+"가 가입하려는 팀입니다.",Toast.LENGTH_LONG).show();
+                    if(team!=null)
+
+                }
+            },500);*/
             leagueArraylist= new ArrayList<>();
+            //dialogshow(v,getAdapterPosition(),leaguename);
             dialogshow(v,getAdapterPosition(),leaguename);
         }
         @Override
@@ -93,10 +118,11 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         return mDataset.size();
     }
 
-    static void dialogshow(View v,int position, String teamname){
+    static void dialogshow(View v,int position, String teamname)
+    {
         AlertDialog.Builder  builder = new AlertDialog.Builder(v.getContext());
         builder.setTitle("리그 참가 신청");
-        builder.setMessage("해당 대회로 참가 신청하시겠습니까?");
+        builder.setMessage("팀은 해당 대회로 참가 신청하시겠습니까?");
         builder.setPositiveButton("예",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
