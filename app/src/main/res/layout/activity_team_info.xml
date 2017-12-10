@@ -35,6 +35,12 @@
             android:textSize="16dp"
             android:text="팀명"/>
 
+        <TextView
+            android:id="@+id/getteamname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="갱신중입니다..." />
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,15 +49,25 @@
             android:textSize="16dp"
             android:layout_marginTop="20dp"
             android:text="활동지역"/>
-
+        <TextView
+            android:id="@+id/getteamregion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="갱신중입니다..." />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
             android:textSize="16dp"
             android:layout_marginTop="20dp"
-            android:text="공인팀 여부"/>
-
+            android:text="공인팀 유무"/>
+        <TextView
+            android:id="@+id/getteamofficial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="갱신중입니다..." />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,6 +124,8 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+
 
 
     </LinearLayout>
