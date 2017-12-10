@@ -67,21 +67,34 @@ public class FourFragment extends Fragment {
             public void run() {
                 User myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
                 //Team myteam = DatabaseManager.findteambyuser(myuser);
-                myname.setText(myuser.getUsername());
-                myregion.setText(myuser.getUserregion());
-                myheight.setText(myuser.getUserheight());
-                myteam = DatabaseManager.showmyteam(myuser.getUsername());
+                if(myuser!=null)
+                {
+                    myname.setText(myuser.getUsername());
+                    myregion.setText(myuser.getUserregion());
+                    myheight.setText(myuser.getUserheight());
+                    myteam = DatabaseManager.showmyteam(myuser.getUsername());
+                }
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        myteam = DatabaseManager.showmyteam(myuser.getUsername());
-                        myteamname.setText(myteam.getTeamName());
-                        myteamregion.setText(myteam.getTeamregion());
-                        myteamleader.setText(myteam.getTeamleader().getUsername());
+                            myteam = DatabaseManager.showmyteam(myuser.getUsername());
+                            if(myteam!=null)
+                            {
+                                myteamname.setText(myteam.getTeamName());
+                                myteamregion.setText(myteam.getTeamregion());
+                                myteamleader.setText(myteam.getTeamleader().getUsername());
+
+                            }
                     }
                 },200);
             }
         },200);
+        if(myteam==null)
+        {
+            myteamname.setText("가입한 팀이 없습니다.");
+            myteamregion.setText(" ");
+            myteamleader.setText(" ");
+        }
        return view;
     }
 }
