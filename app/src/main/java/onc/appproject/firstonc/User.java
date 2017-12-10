@@ -60,6 +60,9 @@ public class User {
     }
     public String getUserheight(){return userheight;}
     public String getUserregion(){return downtown;}
+
+    public String getUsersex(){return sex;}
+
     public Boolean getTeampermission(){return teampermission;}
 
 }

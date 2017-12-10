@@ -81,6 +81,7 @@ public class ThreeFragment extends Fragment {
                 updetail();
             }
         });
+        itemArrayList.clear();
         return rootView;
     }
     public void updetail()

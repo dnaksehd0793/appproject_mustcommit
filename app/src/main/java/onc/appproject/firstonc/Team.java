@@ -12,7 +12,7 @@ public class Team {
     public String teamregion;
     public boolean official; //등록유무
     public User teamleader;
-    public User member;
+    public ArrayList<User> member;
     public Team(){
 
     }
@@ -27,7 +27,13 @@ public class Team {
         this.official = official;
         this.teamleader = teamleader;
     }
-
+    public Team(String teamName , String teamregion, boolean official,User teamleader,ArrayList<User> member){
+        this.teamName = teamName;
+        this.teamregion = teamregion;
+        this.official = official;
+        this.teamleader = teamleader;
+        this.member = member;
+    }
     public String getTeamName() {
         return teamName;
     }

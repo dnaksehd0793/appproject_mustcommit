@@ -91,8 +91,6 @@ public class TwoFragment extends Fragment  {
             }
         });
 
-
-
         return rootView;
     }
     public void updetail()

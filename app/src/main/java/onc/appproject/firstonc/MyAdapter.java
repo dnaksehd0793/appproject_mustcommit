@@ -40,6 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         // 사용될 항목들 선언
         public TextView mName;
         public TextView mAge;
+        public TextView mlname;
         //public TextView mteamleadername;
         public ImageView mPhoto;
         public TextView mOfficialInfo;
@@ -52,6 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
 
             mName = (TextView) v.findViewById(R.id.info_name);
             mAge = (TextView) v.findViewById(R.id.info_region);
+            mlname = (TextView) v.findViewById(R.id.teamleadername);
             teamname = mName.getText().toString();
 
             //mteamleadername = (TextView) v.findViewById(R.id.teamleadername);
@@ -116,12 +118,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mName.setText(mDataset.get(position).getTeamName());
         holder.mAge.setText(String.valueOf(mDataset.get(position).getTeamregion())); //int를 가져온다는점 유의
-
+        holder.mlname.setText(mDataset.get(position).getTeamleader().getUsername()+"팀장");
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        if(mDataset.isEmpty())
+            return 0;
+        else
+            return mDataset.size();
     }
 
     //static void dialogshow(View v,int position, String teamname,ArrayList<Team> mDataset){
