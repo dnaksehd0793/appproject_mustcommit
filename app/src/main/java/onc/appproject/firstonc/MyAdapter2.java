@@ -28,10 +28,10 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
 {
     private static ArrayList<League> mDataset;
     static ArrayList<League> leagueArraylist = new ArrayList<>();
-
+   static  FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     static User myuser = null;
     static Team myteam = null;
-
+    static String myleague = null;
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener{
         // 사용될 항목들 선언
         public TextView mName;
@@ -54,21 +54,28 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         }
         @Override
         public void onClick(View v){
-          /*  myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
-            Team team = DatabaseManager.getTeambyname(myuser.getUsername());
+            User myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
+            myteam = DatabaseManager.showmyteam(myuser.getUsername());
+            String myleague = DatabaseManager.getLeague(myteam.getTeamName());
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
-                    Team team = DatabaseManager.getTeambyname(myuser.getUsername());
-                    //Toast.makeText(v.getContext(), teamkey+ loginuser .getUsername()+"가 가입하려는 팀입니다.",Toast.LENGTH_LONG).show();
-                    if(team!=null)
-
+                    User myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
+                    myteam = DatabaseManager.showmyteam(myuser.getUsername());
+                    String myleague = DatabaseManager.getLeague(myteam.getTeamName());
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            myteam = DatabaseManager.showmyteam(myuser.getUsername());
+                            String myleague = DatabaseManager.getLeague(myteam.getTeamName());
+                            dialogshow(v,getAdapterPosition(),myleague, myteam );
+                        }
+                    },200);
                 }
-            },500);*/
+            },200);
             leagueArraylist= new ArrayList<>();
             //dialogshow(v,getAdapterPosition(),leaguename);
-            dialogshow(v,getAdapterPosition(),leaguename);
+
         }
         @Override
         public boolean onLongClick(View view) {
@@ -118,15 +125,18 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         return mDataset.size();
     }
 
-    static void dialogshow(View v,int position, String teamname)
+    static void dialogshow(View v,int position, String myleague,Team  myteam)
     {
+
         AlertDialog.Builder  builder = new AlertDialog.Builder(v.getContext());
         builder.setTitle("리그 참가 신청");
-        builder.setMessage("팀은 해당 대회로 참가 신청하시겠습니까?");
+        builder.setMessage( myleague+"팀은 해당 대회로 참가 신청하시겠습니까?");
         builder.setPositiveButton("예",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(v.getContext(),mDataset.get(position).getName()+"대회로 참가 신청이 완료됬습니다.",Toast.LENGTH_LONG).show();
+                        DatabaseReference databaseRef = firebaseDatabase.getReference("league");
+                        databaseRef.child(myleague).child("leaguemember").push().setValue(myteam);
+                        /*Toast.makeText(v.getContext(),mDataset.get(position).getTeamName()+"팀으로 가입 신청이 완료되었습니다.",Toast.LENGTH_LONG).show();*/
 
                     }
                 });

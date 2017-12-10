@@ -22,7 +22,7 @@ public class DatabaseManager {
     public static String publicuserkey = null;
     public static Team sosockteam = null;
     public static Team myteam = null;
-
+    public static String publlicleaguekey = null;
 
     public static String findUserByKey(String key){
         String returnstring = null;
@@ -104,6 +104,28 @@ public class DatabaseManager {
             }
         });
         return publlicteamkey;
+    }
+    public static String getLeague(String teamname)
+    {
+        League league = new League();
+        DatabaseReference databaseRef = firebaseDatabase.getReference("league");
+        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
+                    League inputteam = (League) fileSnapshot.getValue(League.class);
+                    if(inputteam.getName().equals(teamname))
+                    {
+                        publlicleaguekey = fileSnapshot.getKey();
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return publlicleaguekey;
     }
     public static Team getTeambyname(String teamname)
     {

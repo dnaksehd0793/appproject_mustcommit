@@ -138,18 +138,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         DatabaseReference databaseRef = firebaseDatabase.getReference("team");
-
-                       // String teamkey2 = DatabaseManager.getTeam(mDataset.get(position).getTeamName());
-                       // User loginuser2 = DatabaseManager.getUser(mFirebaseUser.getEmail());
-                        //Toast.makeText(v.getContext(), teamkey+ loginuser .getUsername()+"가 가입하려는 팀입니다.",Toast.LENGTH_LONG).show();
                         databaseRef.child(teamkey).child("teammember").push().setValue(loginuser);
-
                         Toast.makeText(v.getContext(),mDataset.get(position).getTeamName()+"팀으로 가입 신청이 완료되었습니다.",Toast.LENGTH_LONG).show();
-                        //mDataset.get(position).getTeamName()
-                        //Team myteam = DatabaseManager.getTeam(mDataset.get(position).getTeamName());
-                        //databaseReference.child("team").child(myteam.getTeamName()).child("teammember").push().setValue(DatabaseManager.getUser(mFirebaseUser.getEmail()));
-                        //databaseReference.child("team").push().setValue(myteam);
-                      // Toast.makeText(v.getContext(), DatabaseManager.getTeam(mDataset.get(position).getTeamName())+"가 가입하려는 팀입니다.",Toast.LENGTH_LONG).show();
                     }
                 });
         builder.setNegativeButton("아니오",
