@@ -31,7 +31,8 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
    static  FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     static User myuser = null;
     static Team myteam = null;
-    static String myleague = null;
+    static String leaguename = null;
+    static String myleaguekey = null;
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener{
         // 사용될 항목들 선언
         public TextView mName;
@@ -56,25 +57,29 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         public void onClick(View v){
             User myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
             myteam = DatabaseManager.showmyteam(myuser.getUsername());
-            String myleague = DatabaseManager.getLeague(myteam.getTeamName());
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     User myuser = DatabaseManager.getUser(mFirebaseUser.getEmail());
                     myteam = DatabaseManager.showmyteam(myuser.getUsername());
-                    String myleague = DatabaseManager.getLeague(myteam.getTeamName());
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             myteam = DatabaseManager.showmyteam(myuser.getUsername());
-                            String myleague = DatabaseManager.getLeague(myteam.getTeamName());
-                            dialogshow(v,getAdapterPosition(),myleague, myteam );
                         }
                     },200);
                 }
             },200);
+            leaguename = mDataset.get(getAdapterPosition()).getName();
+            myleaguekey = DatabaseManager.getLeague(leaguename);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    myleaguekey = DatabaseManager.getLeague(leaguename);
+                }
+            },200);
+            dialogshow(v,getAdapterPosition(),myleaguekey, myteam );
             leagueArraylist= new ArrayList<>();
-            //dialogshow(v,getAdapterPosition(),leaguename);
 
         }
         @Override
@@ -127,10 +132,10 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
 
     static void dialogshow(View v,int position, String myleague,Team  myteam)
     {
-
+        Toast.makeText(v.getContext(),myleague+"해당리그의 키값입니다.",Toast.LENGTH_LONG).show();
         AlertDialog.Builder  builder = new AlertDialog.Builder(v.getContext());
         builder.setTitle("리그 참가 신청");
-        builder.setMessage( myleague+"팀은 해당 대회로 참가 신청하시겠습니까?");
+        builder.setMessage( myteam.getTeamName()+"팀은 해당 대회로 참가 신청하시겠습니까?");
         builder.setPositiveButton("예",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

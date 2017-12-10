@@ -105,7 +105,7 @@ public class DatabaseManager {
         });
         return publlicteamkey;
     }
-    public static String getLeague(String teamname)
+    public static String getLeague(String Leaguename)
     {
         League league = new League();
         DatabaseReference databaseRef = firebaseDatabase.getReference("league");
@@ -113,8 +113,8 @@ public class DatabaseManager {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
-                    League inputteam = (League) fileSnapshot.getValue(League.class);
-                    if(inputteam.getName().equals(teamname))
+                    League inputLeague= (League) fileSnapshot.getValue(League.class);
+                    if(inputLeague.getName().equals(Leaguename))
                     {
                         publlicleaguekey = fileSnapshot.getKey();
                     }
