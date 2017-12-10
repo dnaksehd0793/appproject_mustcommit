@@ -80,11 +80,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
         public boolean onLongClick(View view) {
             //Team getTeambyname(String teamname)
             //Team team = DatabaseManager.getTeambyname(mDataset.get(getAdapterPosition()).getTeamName());
-            Toast.makeText(view.getContext(), mDataset.get(getAdapterPosition()).getTeamName()+"팀 정보로 넘어갑니다.",Toast.LENGTH_LONG).show();
+           // Toast.makeText(view.getContext(), mDataset.get(getAdapterPosition()).getTeamName()+"팀 정보로 넘어갑니다.",Toast.LENGTH_LONG).show();
             Intent intent = new Intent(view.getContext(),TeamInfoActivity.class);
             intent.putExtra("team name",mDataset.get(getAdapterPosition()).getTeamName());
             intent.putExtra("team region",mDataset.get(getAdapterPosition()).getTeamregion());
+            intent.putExtra("team official",mDataset.get(getAdapterPosition()).getOfficial());
             intent.putExtra("team leader",mDataset.get(getAdapterPosition()).getTeamleader().getUsername());
+            //intent.putExtra("team members",mDataset.get(getAdapterPosition()).get)
             //intent.putExtra("team_info",team);
             view.getContext().startActivity(intent);
             return true;

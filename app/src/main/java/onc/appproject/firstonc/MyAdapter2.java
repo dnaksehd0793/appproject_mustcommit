@@ -48,6 +48,12 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         @Override
         public boolean onLongClick(View view) {
             Intent intent = new Intent(view.getContext(),LeagueInfoActivity.class);
+            intent.putExtra("l name",mDataset.get(getAdapterPosition()).getName());
+            intent.putExtra("l sponsor",mDataset.get(getAdapterPosition()).getSponsor());
+            intent.putExtra("l location",mDataset.get(getAdapterPosition()).getRegion());
+            intent.putExtra("l date",mDataset.get(getAdapterPosition()).getDate());
+            intent.putExtra("l cost",mDataset.get(getAdapterPosition()).getCost());
+            intent.putExtra("l teamnum",mDataset.get(getAdapterPosition()).getTeamnumber());
             view.getContext().startActivity(intent);
             return true;
         }

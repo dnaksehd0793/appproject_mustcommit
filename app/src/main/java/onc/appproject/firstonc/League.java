@@ -45,6 +45,7 @@ public class League {
     public String getRegion(){return region;}
     public String getSchedule(){return schedule;}
     public String getSponsor(){return sponsor;}
+    public String getCost(){return  cost;}
     //public String getJoincost(){return joincost;}
     public String getTeamnumber(){return teamnumber;}
 }

@@ -55,15 +55,16 @@
             android:layout_height="wrap_content"
             android:textSize="16dp"
             android:text="갱신중입니다..." />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
             android:textSize="16dp"
             android:layout_marginTop="20dp"
-            android:text="공인팀 유무"/>
+            android:text="팀 리더 이름"/>
         <TextView
-            android:id="@+id/getteamofficial"
+            android:id="@+id/getteamleadername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16dp"

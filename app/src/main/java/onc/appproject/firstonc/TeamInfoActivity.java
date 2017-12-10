@@ -11,6 +11,7 @@ public class TeamInfoActivity extends AppCompatActivity {
     TextView teamname;
     TextView teamregion;
     TextView teamleader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,7 @@ public class TeamInfoActivity extends AppCompatActivity {
         //newsView = (TextView)rootView.findViewById(R.id.newsView);
         teamname = (TextView)findViewById(R.id.getteamname);
         teamregion = (TextView)findViewById(R.id.getteamregion);
-        teamleader = (TextView)findViewById(R.id.getteamofficial);
+        teamleader = (TextView)findViewById(R.id.getteamleadername);
         teamname.setText(name);
         teamregion.setText(region);
         teamleader.setText(teamleadername);

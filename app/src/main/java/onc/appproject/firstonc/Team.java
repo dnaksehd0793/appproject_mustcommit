@@ -35,5 +35,6 @@ public class Team {
         return teamregion;
     }
     public User getTeamleader(){return teamleader;}
+    public boolean getOfficial(){return official;}
 
 }
