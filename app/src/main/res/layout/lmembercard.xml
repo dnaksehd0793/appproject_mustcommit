@@ -22,22 +22,30 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:text="이름"/>
+                android:textSize="13dp"
+                android:text="no."/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="95dp"
-                android:textSize="15dp"
-                android:text="성별"/>
+                android:layout_marginLeft="55dp"
+                android:textSize="13dp"
+                android:text="팀명"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="95dp"
-                android:textSize="15dp"
-                android:text="신장"/>
+                android:layout_marginLeft="55dp"
+                android:textSize="13dp"
+                android:text="리더명"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:textSize="13dp"
+                android:text="지역"
+                />
 
 
         </LinearLayout>

@@ -124,7 +124,7 @@
             android:textSize="30dp"
             android:textStyle="bold"
             android:textColor="#106897"
-            android:text="출전 명단"/>
+            android:text="참가 팀"/>
 
         <View
             android:layout_width="fill_parent"
@@ -139,24 +139,34 @@
             android:gravity="center"
             android:layout_gravity="center">
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/person"
-                android:layout_marginRight="50dp"/>
+                android:textSize="15dp"
+                android:text="no."/>
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="160dp"
-                android:layout_marginTop="30dp"
-                android:background="#cccccc"
-                android:layout_gravity="center"/>
-
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/person"
-                android:layout_marginLeft="50dp"/>
+                android:layout_marginLeft="60dp"
+                android:textSize="15dp"
+                android:text="팀명"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:textSize="15dp"
+                android:text="리더명"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:textSize="15dp"
+                android:text="지역"/>
+
+
 
         </LinearLayout>
 
