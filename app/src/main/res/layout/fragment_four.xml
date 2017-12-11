@@ -146,7 +146,7 @@
 
     </android.support.v7.widget.CardView>
 
-    <TextView
+    <!--<TextView
         android:id="@+id/leaguetakein"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -223,7 +223,7 @@
 
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>-->
 
 
 

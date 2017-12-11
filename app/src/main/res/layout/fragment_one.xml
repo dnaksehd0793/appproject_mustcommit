@@ -6,45 +6,45 @@
 
     <ImageView
         android:id="@+id/newsIcon1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginStart="37dp"
         android:layout_marginTop="24dp"
         android:src="@drawable/news1" />
 
     <ImageView
         android:id="@+id/newsIcon2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_alignTop="@+id/newsIcon1"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginStart="37dp"
         android:layout_toEndOf="@+id/newsIcon1"
         android:layout_toRightOf="@+id/newsIcon1"
         android:src="@drawable/news2" />
 
     <ImageView
         android:id="@+id/newsIcon3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_alignTop="@+id/newsIcon2"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginStart="37dp"
         android:layout_toEndOf="@+id/newsIcon2"
         android:layout_toRightOf="@+id/newsIcon2"
         android:src="@drawable/news3" />
 
     <ImageView
         android:id="@+id/newsIcon4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_alignTop="@+id/newsIcon3"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginStart="37dp"
         android:layout_toEndOf="@+id/newsIcon3"
         android:layout_toRightOf="@+id/newsIcon3"
         android:src="@drawable/news4" />
