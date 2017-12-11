@@ -61,7 +61,7 @@ public class TeamInfoActivity extends AppCompatActivity {
             @Override
             public void run() {
                 String teamkey = DatabaseManager.getTeam(name);
-                Toast.makeText(getApplication(),name+"의 팀키는 "+teamkey,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplication(),name+"의 팀키는 "+teamkey,Toast.LENGTH_LONG).show();
                 DatabaseReference databaseRef = firebaseDatabase.getReference("team").child(teamkey).child("teammember");
                 User user = new User();
                 databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {

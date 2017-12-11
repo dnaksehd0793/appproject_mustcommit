@@ -3,15 +3,18 @@ package onc.appproject.firstonc;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
+import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -36,6 +39,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     private static DatabaseReference databaseReference = firebaseDatabase.getReference();
     private static ArrayList<Team> mDataset; //MainActivity에 item class를 정의해 놓았음
     static  FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
         // 사용될 항목들 선언
         public TextView mName;
@@ -150,4 +154,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
                 });
         builder.show();
     }
+    private static void sendSMS(View view)
+    {
+        Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+        String smsBody = "오늘 저녁 어때";
+        sendIntent.putExtra("sms_body",smsBody);
+        sendIntent.putExtra("address","01099791851");
+        sendIntent.setType("vnd.android-dir/mms-sms");
+        view.getContext().startActivity(sendIntent);
+    }
+    static void SendSMS2(String number,String msg){
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(number,null,msg,null,null);
+    }
+
+
+
 }

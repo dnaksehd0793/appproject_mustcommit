@@ -1,6 +1,7 @@
 package onc.appproject.firstonc;
 
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
@@ -76,9 +77,16 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
                 @Override
                 public void run() {
                     myleaguekey = DatabaseManager.getLeague(leaguename);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            myleaguekey = DatabaseManager.getLeague(leaguename);
+                            dialogshow(v,getAdapterPosition(),myleaguekey, myteam );
+                        }
+                    },200);
                 }
             },200);
-            dialogshow(v,getAdapterPosition(),myleaguekey, myteam );
+
             leagueArraylist= new ArrayList<>();
 
         }
@@ -132,7 +140,7 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
 
     static void dialogshow(View v,int position, String myleague,Team  myteam)
     {
-        Toast.makeText(v.getContext(),myleague+"해당리그의 키값입니다.",Toast.LENGTH_LONG).show();
+        //Toast.makeText(v.getContext(),myleague+"해당리그의 키값입니다.",Toast.LENGTH_LONG).show();
         AlertDialog.Builder  builder = new AlertDialog.Builder(v.getContext());
         builder.setTitle("리그 참가 신청");
         builder.setMessage( myteam.getTeamName()+"팀은 해당 대회로 참가 신청하시겠습니까?");
@@ -141,8 +149,7 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
                     public void onClick(DialogInterface dialog, int which) {
                         DatabaseReference databaseRef = firebaseDatabase.getReference("league");
                         databaseRef.child(myleague).child("leaguemember").push().setValue(myteam);
-                        /*Toast.makeText(v.getContext(),mDataset.get(position).getTeamName()+"팀으로 가입 신청이 완료되었습니다.",Toast.LENGTH_LONG).show();*/
-
+                        Toast.makeText(v.getContext(),myteam.getTeamName()+"팀으로 가입 신청이 완료되었습니다.",Toast.LENGTH_LONG).show();
                     }
                 });
         builder.setNegativeButton("아니오",
@@ -153,5 +160,6 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
                 });
         builder.show();
     }
+
 
 }

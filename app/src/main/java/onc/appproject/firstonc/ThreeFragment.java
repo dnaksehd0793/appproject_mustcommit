@@ -59,6 +59,7 @@ public class ThreeFragment extends Fragment {
         databaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                itemArrayList.clear();
                 for (DataSnapshot fileSnapshot : dataSnapshot.getChildren()) {
                     //MyFiles filename = (MyFiles) fileSnapshot.getValue(MyFiles.class);
                     //하위키들의 value를 어떻게 가져오느냐???
