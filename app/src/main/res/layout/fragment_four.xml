@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
 
     <ImageView
@@ -36,7 +37,7 @@
         android:layout_alignBottom="@+id/profile_photo"
         android:layout_alignLeft="@+id/profile_name"
         android:layout_alignStart="@+id/profile_name"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="3dp"
         android:textSize="16dp"
         android:text="지역" />
 
@@ -61,85 +62,169 @@
         android:layout_below="@+id/profile_photo"
         android:layout_gravity="center"
         android:layout_marginTop="14dp"
-        android:background="#cccccc" />
+        android:background="#cccccc"
+        android:id="@+id/view" />
 
     <TextView
+        android:id="@+id/teamtakein"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="157dp"
-        android:text="여기에는 참가한 팀 카드뷰"
-        android:id="@+id/textView2" />
+        android:layout_below="@+id/view"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"
+        android:textSize="23dp"
+        android:text="참가중인 팀"/>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teamtakein"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/card_view_team"
+        android:layout_margin="15dp"
+        android:padding="5dp"
+        card_view:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/teamicon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:padding = "5dp"
+                android:src="@drawable/ballicon2"/>
+
+            <TextView
+                android:id="@+id/myteamname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/teamicon"
+                android:layout_toRightOf="@+id/teamicon"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:textColor="#106897"
+                android:text="내팀이름 내용" />
+
+
+            <TextView
+                android:id="@+id/myteamregion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_below="@+id/myteamname"
+                android:layout_toEndOf="@+id/teamicon"
+                android:layout_toRightOf="@+id/teamicon"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="15dp"
+                android:text="내팀지역 내용" />
+
+            <TextView
+                android:id="@+id/myteamleader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/myteamname"
+                android:layout_toEndOf="@+id/myteamregion"
+                android:layout_toRightOf="@+id/myteamregion"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp"
+                android:text="팀장이름 내용" />
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
 
     <TextView
+        android:id="@+id/leaguetakein"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="157dp"
-        android:text="여기에는 참가한 대회 카드뷰"
-        android:id="@+id/textView" />
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/card_view_team"
+        android:textSize="23dp"
+        android:text="참가중인 대회"/>
 
-    <TextView
-        android:id="@+id/myteamname"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="35dp"
-        android:layout_toLeftOf="@+id/profile_region"
-        android:layout_toStartOf="@+id/profile_region"
-        android:text="내팀이름" />
+        android:layout_below="@id/leaguetakein"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:padding="5dp"
+        card_view:cardCornerRadius="4dp">
 
-    <TextView
-        android:id="@+id/myteamname2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/myteamname"
-        android:layout_alignStart="@+id/myteamname"
-        android:layout_centerVertical="true"
-        android:text="내팀이름" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/myteamregion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/myteamname"
-        android:layout_alignBottom="@+id/myteamname"
-        android:layout_centerHorizontal="true"
-        android:text="내팀지역" />
 
-    <TextView
-        android:id="@+id/myteamregion2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/myteamname2"
-        android:layout_alignBottom="@+id/myteamname2"
-        android:layout_toEndOf="@+id/profile_region"
-        android:layout_toRightOf="@+id/profile_region"
-        android:text="내팀지역" />
+            <ImageView
+                android:id="@+id/leagueicon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:padding = "5dp"
+                android:src="@drawable/ballicon2"/>
 
-    <TextView
-        android:id="@+id/myteamleader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/myteamregion"
-        android:layout_alignBottom="@+id/myteamregion"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:text="팀장이름" />
+            <TextView
+                android:id="@+id/myleaguename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/leagueicon"
+                android:layout_toRightOf="@+id/leagueicon"
+                android:textSize="16dp"
+                android:textColor="#106897"
+                android:text="대회이름 내용"/>
 
-    <TextView
-        android:id="@+id/myteamleader2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/myteamregion2"
-        android:layout_alignBottom="@+id/myteamregion2"
-        android:layout_toEndOf="@+id/profile_height"
-        android:layout_toRightOf="@+id/profile_height"
-        android:text="팀장이름" />
+            <TextView
+                android:id="@+id/myleagueregion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_below="@+id/myleaguename"
+                android:layout_toEndOf="@+id/leagueicon"
+                android:layout_toRightOf="@+id/leagueicon"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp"
+                android:text="대회장소 내용"/>
+
+            <TextView
+                android:id="@+id/myleaguesponsor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/myleaguename"
+                android:layout_toEndOf="@+id/myleagueregion"
+                android:layout_toRightOf="@+id/myleagueregion"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp"
+                android:text="대회주최 내용"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
 
 
 </RelativeLayout>
