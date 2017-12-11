@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="55dp"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="60dp"
             android:layout_marginBottom="10dp"
             android:text="대회 정보"
             android:textSize="30dp"
@@ -27,98 +27,176 @@
             android:background="#cccccc"
             android:layout_gravity="center"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="20dp"
+                android:textSize="16dp"
+                android:text="대회명"
+                android:id="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/Lname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/textView7"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:text="갱신중입니다..."
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="20dp"
-            android:textSize="16dp"
-            android:text="대회명"/>
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="10dp"
+                android:textSize="16dp"
+                android:text="대회주최"
+                android:id="@+id/textView8"/>
+            <TextView
+                android:id="@+id/Lsponsor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/textView8"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:text="갱신중입니다..."
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:textSize="16dp"
+                android:layout_marginTop="10dp"
+                android:text="대회장소"
+                android:id="@+id/textView9"/>
+            <TextView
+                android:id="@+id/Llocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/textView9"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:text="갱신중입니다..."
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:textSize="16dp"
+                android:layout_marginTop="10dp"
+                android:text="대회일시"
+                android:id="@+id/textView10"/>
+
+            <TextView
+                android:id="@+id/Ldate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/textView10"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:text="갱신중입니다..."
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:textSize="16dp"
+                android:layout_marginTop="10dp"
+                android:text="참가비"
+                android:id="@+id/textView11"/>
+
+            <TextView
+                android:id="@+id/Lcost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/textView11"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:text="갱신중입니다..."
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:textSize="16dp"
+                android:layout_marginTop="10dp"
+                android:text="참가 팀 수"
+                android:id="@+id/textView12"/>
+
+            <TextView
+                android:id="@+id/Lteamnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/textView12"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:text="갱신중입니다..."
+                android:textSize="14dp" />
+
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Lname"
-            android:layout_marginLeft="55dp"
-            android:text="갱신중입니다..."
-            android:textSize="16dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="10dp"
-            android:textSize="16dp"
-            android:text="대회주최"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Lsponsor"
-            android:layout_marginLeft="55dp"
-            android:text="갱신중입니다..."
-            android:textSize="16dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:textSize="16dp"
-            android:layout_marginTop="10dp"
-            android:text="대회장소"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Llocation"
-            android:layout_marginLeft="55dp"
-            android:text="갱신중입니다..."
-            android:textSize="16dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:textSize="16dp"
-            android:layout_marginTop="10dp"
-            android:text="대회일시"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Ldate"
-            android:layout_marginLeft="55dp"
-            android:text="갱신중입니다..."
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:textSize="16dp"
-            android:layout_marginTop="10dp"
-            android:text="참가비"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Lcost"
-            android:layout_marginLeft="55dp"
-            android:text="갱신중입니다..."
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:textSize="16dp"
-            android:layout_marginTop="10dp"
-            android:text="참가 팀 수"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Lteamnum"
-            android:layout_marginLeft="55dp"
-            android:text="갱신중입니다..."
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:layout_marginLeft="55dp"
             android:layout_marginBottom="10dp"
             android:textSize="30dp"
@@ -135,15 +213,17 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:id="@+id/leagueinfo">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
-                android:text="no."/>
+                android:text="No."/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -166,12 +246,16 @@
                 android:textSize="15dp"
                 android:text="지역"/>
 
-
-
         </LinearLayout>
 
-
-
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/my_recycler_view4"
+            android:scrollbars="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/leagueinfo"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 
     </LinearLayout>

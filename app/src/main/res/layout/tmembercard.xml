@@ -19,11 +19,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:gravity="center">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="member name"
+                android:text="name"
                 android:textStyle="bold"
                 android:textColor="#106897"
                 android:id="@+id/member_name"
@@ -33,8 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_marginLeft="30dp"
-                android:text="member sex"
+                android:layout_marginLeft="80dp"
+                android:text="sex"
                 android:id="@+id/member_sex"
                 android:textSize="13dp" />
 
@@ -42,9 +43,9 @@
                 android:id="@+id/member_height"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="member height"
+                android:text="height"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="80dp"
                 android:textSize="14dp" />
 
 
