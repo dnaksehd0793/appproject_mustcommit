@@ -80,9 +80,9 @@ public class FourFragment extends Fragment {
                             myteam = DatabaseManager.showmyteam(myuser.getUsername());
                             if(myteam!=null)
                             {
-                                myteamname.setText(myteam.getTeamName());
-                                myteamregion.setText(myteam.getTeamregion());
-                                myteamleader.setText(myteam.getTeamleader().getUsername());
+                                myteamname.setText(myteam.getTeamName()+ " 팀");
+                                myteamregion.setText(myteam.getTeamregion() + " 지역");
+                                myteamleader.setText(myteam.getTeamleader().getUsername()+ " 팀장");
 
                             }
                     }

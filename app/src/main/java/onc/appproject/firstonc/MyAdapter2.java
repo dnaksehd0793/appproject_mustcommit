@@ -123,8 +123,8 @@ public class MyAdapter2  extends RecyclerView.Adapter<MyAdapter2.ViewHolder>
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.mName.setText(mDataset.get(position).getName());
-        holder.mAge.setText(mDataset.get(position).getDate());
-        holder.mEmail.setText(mDataset.get(position).getRegion());
+        holder.mAge.setText("일시 : "+mDataset.get(position).getDate());
+        holder.mEmail.setText("장소 : "+mDataset.get(position).getRegion());
         /*holder.mAge.setText(String.valueOf(mDataset.get(position).getSchedule())); //int를 가져온다는점 유의
         holder.mEmail.setText(mDataset.get(position).getSponsor());
         holder.mEmail2.setText(mDataset.get(position).getJoincost());
