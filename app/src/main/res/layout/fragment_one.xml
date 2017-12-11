@@ -4,6 +4,23 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:id="@+id/newsView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:background="#545454"
+        android:textSize="19dp"
+        android:textColor="@color/colorPrimary"
+        android:text= "'김정은 23점' 우리은행, KEB하나은행에 70:57 승리
+    농구 대표팀 김종규, 왼무릎 인대 파열…6주 이상 결장 불가피
+    ‘농구월드컵 1승 1패’ 허재호, 희망을 보다
+    앤써니, 정규시즌 누적 득점 23위 등극!
+    `타운스 32점` 미네소타, 부커 빠진 피닉스 제압" />
+
     <ImageView
         android:id="@+id/newsIcon1"
         android:layout_width="55dp"
@@ -11,9 +28,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_below="@+id/newsView"
         android:layout_marginLeft="37dp"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="38dp"
         android:src="@drawable/news1" />
 
     <ImageView
@@ -50,7 +68,7 @@
         android:src="@drawable/news4" />
 
 
-    <android.support.v7.widget.Toolbar
+    <!--<android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -75,24 +93,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>-->
 
-    <TextView
-        android:id="@+id/newsView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:singleLine="true"
-        android:ellipsize="marquee"
-        android:focusable="true"
-        android:background="#545454"
-        android:textSize="19dp"
-        android:textColor="@color/colorPrimary"
-        android:text= "'김정은 23점' 우리은행, KEB하나은행에 70:57 승리
-    농구 대표팀 김종규, 왼무릎 인대 파열…6주 이상 결장 불가피
-    ‘농구월드컵 1승 1패’ 허재호, 희망을 보다
-    앤써니, 정규시즌 누적 득점 23위 등극!
-    `타운스 32점` 미네소타, 부커 빠진 피닉스 제압" />
+
 
 
 </RelativeLayout>
